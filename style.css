@@ -1,0 +1,774 @@
+:root{
+    --primary: #38bdf8;
+    --accent: #818cf8;
+    --bg: #0f172a;
+    --bg-card: rgba(30, 41, 59, 0.6);
+    --text: #f8fafc;
+    --text-muted: #94a3b8;
+    --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+}
+
+*{
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x:hidden;
+    line-height: 1.7;
+}
+
+/* Canvas Background */
+#particles{
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* Navigation */
+nav {
+    position: absolute; /* DIUBAH dari fixed ke absolute agar navbar tetap di atas dan tidak ikut di-scroll */
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    padding: 15px 35px;
+    width: fit-content;
+
+    background: rgba(15,23,42,.6);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 50px;
+    z-index: 1000;
+}
+
+/* menu */
+.nav-links {
+    display: flex;
+    gap: 15px; /* Dikurangi dari 25px menjadi 15px agar muat */
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem; /* Dikurangi dari 0.95rem menjadi 0.85rem agar lebih pas di layar */
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Mencegah teks menu patah menjadi 2 baris */
+}
+
+/* Efek ketika kursor diarahkan ke menu */
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* logo kiri */
+.logo{
+    font-weight: 700;
+    color: #38bdf8;
+}
+
+/* kasih jarak fleksibel */
+.spacer{
+    width: 40px;
+}
+
+/* menu */
+.nav-links{
+    display: flex;
+    gap: 25px;
+}
+
+/* Hero Section */
+.hero{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+.hero-content img.profile{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid var(--primary);
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+    margin: 0 auto 20px;
+    object-fit: cover;
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%, 100%{transform: translateY(0);}
+    50%{transform: translateY(-15px);}
+}
+
+.hero h1{
+    font-size: 3.5rem;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.hero h1 span{
+    color: var(--primary);
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.typing-text{
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    min-height: 30px;
+    margin-bottom: 30px;
+}
+
+.btns{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn{
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-primary{
+    background: var(--gradient);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+.btn-primary:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 189, 248, 0.5);
+}
+
+.btn-outline{
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover{
+    background: var(--primary);
+    color: #000;
+}
+
+/* Sections Generic */
+section{
+    max-width: 1100px;
+    margin: auto;
+    padding: 100px 20px;
+}
+
+.section-title{
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section-title::after{
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* About & Stats */
+.about-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.stats-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-card{
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.stat-card:hover{
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.stat-card h3{
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.stat-card p{
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Skills Grid */
+.skills-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.skill-card{
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 25px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transition: all .4s ease;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer;
+}
+
+.skill-card::before{
+    content:'';
+    position:absolute;
+    top:-100%;
+    left:-100%;
+    width:250%;
+    height:250%;
+    background:linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,.12),
+        transparent
+    );
+    transition:.7s;
+}
+
+.skill-card:hover::before{
+    top:100%;
+    left:100%;
+}
+
+
+.skill-card i{
+    font-size:3rem;
+    margin-bottom:15px;
+    transition:.4s;
+}
+
+.skill-card:hover i{
+    transform:rotate(15deg) scale(1.25);
+}
+
+.skill-card p{
+    transition:.3s;
+}
+
+.skill-card:hover p{
+    color:var(--primary);
+}
+
+.skill-card:hover{
+    transform: translateY(-12px) scale(1.08);
+    box-shadow: 0 15px 35px rgba(56,189,248,.35);
+    border-color: var(--primary);
+}
+
+.skill-card i{
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+.skill-card p{
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+
+/* ======================
+   LOADING SCREEN
+====================== */
+
+#loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#0f172a;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    transition:1s;
+}
+
+.loader-content{
+    text-align:center;
+}
+
+.loader-content h1{
+    font-size:3rem;
+    margin-bottom:20px;
+    background:linear-gradient(135deg,#38bdf8,#818cf8);
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.loading-bar{
+    width:250px;
+    height:8px;
+    background:rgba(255,255,255,.1);
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.loading-progress{
+    height:100%;
+    width:0;
+    background:linear-gradient(135deg,#38bdf8,#818cf8);
+    animation:loading 2s ease forwards;
+}
+
+@keyframes loading{
+    from{
+        width:0;
+    }
+    to{
+        width:100%;
+    }
+}
+
+/* Projects */
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+
+.hero-subtitle{
+    font-size:1.3rem;
+    color:var(--primary);
+    font-weight:600;
+    margin-bottom:15px;
+}
+
+.hero-desc{
+    max-width:700px;
+    margin:0 auto 30px;
+    color:var(--text-muted);
+    line-height:1.8;
+}
+
+.hero-social{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.hero-social a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.05);
+    color:white;
+    font-size:1.3rem;
+    transition:.3s;
+}
+
+.hero-social a:hover{
+    transform:translateY(-5px);
+    color:#38bdf8;
+    box-shadow:0 0 20px rgba(56,189,248,.5);
+}
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-card{
+    background:var(--bg-card);
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    transition:.4s ease;
+    cursor:pointer;
+    position:relative;
+}
+
+.project-card:hover{
+    transform:translateY(-15px) scale(1.03);
+    box-shadow:0 20px 50px rgba(56,189,248,.3);
+    border-color:var(--primary);
+}
+
+/* Overlay Glow */
+.project-card::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(56,189,248,.15),
+        transparent
+    );
+    opacity:0;
+    transition:.4s;
+    pointer-events:none;
+}
+
+.project-card:hover::after{
+    opacity:1;
+}
+
+/* Image */
+.project-card img{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.project-card:hover img{
+    transform:scale(1.12);
+}
+
+/* Content */
+.project-info{
+    padding:25px;
+    position:relative;
+    z-index:2;
+}
+
+.project-info h3{
+    font-size:1.3rem;
+    margin-bottom:10px;
+    color:var(--text);
+    transition:.3s;
+}
+
+.project-card:hover h3{
+    color:var(--primary);
+}
+
+.project-info p{
+    color:var(--text-muted);
+    font-size:.9rem;
+    margin-bottom:15px;
+}
+
+/* Tags */
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.tag{
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.tag{
+    background:rgba(56,189,248,.12);
+    color:var(--primary);
+    padding:6px 12px;
+    border-radius:30px;
+    font-size:.75rem;
+    font-weight:600;
+    transition:.3s;
+}
+
+.project-card:hover .tag{
+    background:var(--primary);
+    color:#000;
+}
+
+/* =========================
+   CERTIFICATES
+========================= */
+
+#certificates .project-card{
+    border-left:4px solid #38bdf8;
+}
+
+#certificates .project-card:hover{
+    border-left:4px solid #818cf8;
+    box-shadow:0 20px 50px rgba(129,140,248,.35);
+}
+
+.tag{
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.contact-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:40px;
+}
+
+.contact-card{
+    background:var(--bg-card);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+}
+
+.contact-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 40px rgba(56,189,248,.25);
+    border-color:var(--primary);
+}
+
+.contact-card i{
+    font-size:2.5rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.contact-card h3{
+    margin-bottom:10px;
+}
+
+.contact-card p,
+.contact-card a{
+    color:var(--text-muted);
+    text-decoration:none;
+}
+
+.cv-buttons{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+/* Custom View CV Button styling */
+.view-cv-btn {
+    position: relative;
+    z-index: 10;              /* Supaya tombol berada di atas canvas partikel */
+    pointer-events: auto;     /* Memastikan tombol merespons klik */
+    transition: all 0.3s ease !important;
+}
+
+/* Efek Hover pas Tombol CV Ditunjuk */
+.view-cv-btn:hover {
+    background: var(--primary) !important; /* Menggunakan warna cyan/biru utama web lu */
+    color: #0f172a !important;            /* Mengubah warna teks menjadi gelap agar kontras */
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.6); /* Efek glow neon */
+    transform: translateY(-3px);          /* Efek mengangkat sedikit */
+}
+
+
+body{
+    cursor:none;
+}
+
+.cursor-dot{
+    width:8px;
+    height:8px;
+    background:#38bdf8;
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    z-index:99999;
+}
+
+.cursor-outline{
+    width:40px;
+    height:40px;
+    border:2px solid rgba(56,189,248,.7);
+    border-radius:50%;
+    position:fixed;
+    pointer-events:none;
+    z-index:99998;
+    transition:all .15s ease-out;
+}
+
+/* Styling Tombol View PDF */
+.view-pdf-btn {
+    position: relative;       /* TAMBAHKAN INI */
+    z-index: 10;              /* TAMBAHKAN INI agar tombol berada di lapisan paling atas */
+    pointer-events: auto;     /* TAMBAHKAN INI untuk memastikan tombol bisa diklik */
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: rgba(14, 165, 233, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Efek Hover tetap sama */
+.view-pdf-btn:hover {
+    background: var(--primary);
+    color: #0f172a;
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.5);
+    transform: translateY(-2px);
+}
+/* Footer */
+footer{
+    text-align: center;
+    padding: 30px;
+    background: rgba(0,0,0,0.2);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* TECH STACK */
+
+.logo-slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    padding:25px 0;
+}
+
+/* fade kiri kanan biar premium */
+/* Fade kiri kanan */
+.logo-slider::before,
+.logo-slider::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.logo-slider::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg), transparent);
+}
+
+.logo-slider::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg), transparent); /* Menggunakan var(--bg) bukan #000 agar menyatu dengan background utama */
+}
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    gap: 70px; /* Jarak antar elemen, sesuaikan jika ingin lebih renggang (misal: 80px - 100px) */
+    animation: slide 25s linear infinite;
+    will-change: transform;
+}
+
+.logo-slider:hover .logo-track{
+    animation-play-state:paused;
+}
+
+.logo-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:1.2rem;
+    font-weight:600;
+    white-space:nowrap;
+    transition:0.3s;
+}
+
+.logo-item:hover{
+    transform:scale(1.08);
+    color:#fff;
+}
+
+.logo-item i{
+    font-size:2rem;
+    transition:0.3s;
+}
+
+.logo-item:hover i{
+    transform:rotate(5deg) scale(1.2);
+}
+
+/* ANIMATION lebih halus */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Harus -50% agar looping pas dengan teknik duplikasi di atas */
+    }
+}
+
+/* ICON COLORS (tambahan yang kurang) */
+.fa-linux{color:#FCC624;}
+.fa-network-wired{color:#00BFFF;}
+.fa-wifi{color:#FF6B00;}
+.fa-database{color:#4479A1;}
+.fa-html5{color:#E34F26;}
+.fa-css3-alt{color:#1572B6;}
+.fa-js{color:#F7DF1E;}
+.fa-microchip{color:#00C896;}
+.fa-php{color:#777BB4;}
+.fa-python{color:#3776AB;}
+.fa-node-js{color:#3C873A;}
+.fa-git-alt{color:#F05032;}
+.fa-github{color:#fff;}
+.fa-docker{color:#2496ED;}
+.fa-cloud{color:#00C7FF;}
+.fa-ubuntu{color:#E95420;}

@@ -30,38 +30,55 @@ body{
 }
 
 /* Navigation */
-nav {
-    position: absolute; /* DIUBAH dari fixed ke absolute agar navbar tetap di atas dan tidak ikut di-scroll */
+.navbar{
+    position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
 
     display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    padding: 15px 35px;
-    width: fit-content;
+    padding: 15px 30px;
 
-    background: rgba(15,23,42,.6);
+    background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+
     z-index: 1000;
 }
 
-/* menu */
-.nav-links {
-    display: flex;
-    gap: 15px; /* Dikurangi dari 25px menjadi 15px agar muat */
+.logo{
+    font-size: 1.5rem;
+    font-weight: 700;
 }
 
-.nav-links a {
-    color: var(--text-muted);
+.nav-links{
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links a{
     text-decoration: none;
-    font-weight: 500;
-    font-size: 0.85rem; /* Dikurangi dari 0.95rem menjadi 0.85rem agar lebih pas di layar */
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Mencegah teks menu patah menjadi 2 baris */
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.nav-links a:hover{
+    color: var(--primary);
+}
+
+#themeToggle{
+    background: transparent;
+    border: none;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 /* Efek ketika kursor diarahkan ke menu */

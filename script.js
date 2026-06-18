@@ -112,3 +112,10 @@ themeToggle.addEventListener("click", () => {
         icon.classList.add("fa-moon");
     }
 });
+
+const texts = [
+  "Network Engineer",
+  "Linux Enthusiast",
+  "Web Developer",
+  "IoT Developer"
+];

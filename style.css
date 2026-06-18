@@ -29,6 +29,13 @@ body{
     opacity: 0.3;
 }
 
+.light-mode{
+    --bg:#f8fafc;
+    --bg-card:#ffffff;
+    --text:#0f172a;
+    --text-muted:#475569;
+}
+
 /* Navigation */
 .navbar{
     position: fixed;

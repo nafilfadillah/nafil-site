@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Nafil Fadillah</title>
+    <meta name="description" content="Resume web Nafil Fadillah — Network Engineer, Linux Enthusiast, dan Web Developer.">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <canvas id="particles"></canvas>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo" style="text-decoration:none;">nafil</a>
+        <div class="nav-links">
+            <a href="index.html">Portfolio</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <button id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <button class="btn btn-primary resume-print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> Print / Save PDF
+    </button>
+
+    <section class="resume-page">
+
+        <div class="resume-header">
+            <div>
+                <h1>Nafil Fadillah</h1>
+                <p class="role">Network Engineer · Linux Enthusiast · Web Developer</p>
+            </div>
+            <div class="resume-contact">
+                <a href="mailto:nafilfadillah09@gmail.com"><i class="fas fa-envelope"></i> nafilfadillah09@gmail.com</a>
+                <a href="https://wa.me/6281573903440" target="_blank"><i class="fab fa-whatsapp"></i> +62 815-7390-3440</a>
+                <a href="https://github.com/nafilfadillah" target="_blank"><i class="fab fa-github"></i> github.com/nafilfadillah</a>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>Summary</h2>
+            <p style="color:var(--muted); font-size:.9rem; line-height:1.8;">
+                Mahasiswa Sistem Komputer di Universitas Gunadarma dengan fokus pada networking (Cisco, MikroTik),
+                administrasi server Linux, web development, dan sistem embedded/IoT. Berpengalaman membangun
+                infrastruktur jaringan, server (mail, DNS, VPN), serta aplikasi web dan mobile dari nol.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Experience</h2>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Laboratory Assistant</strong><span>Gunadarma</span></div>
+                <p>Membimbing praktikan memahami konsep jaringan &amp; administrasi server; konfigurasi, maintenance, dan troubleshooting layanan DNS/Mail/Web Server berbasis Linux Ubuntu.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>IT Support</strong><span></span></div>
+                <p>Konfigurasi VLAN, routing, switching, DHCP, dan subnetting menggunakan Cisco Packet Tracer. Perbaikan PC dan audit perangkat digital.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Web Development</strong><span></span></div>
+                <p>Membangun website dan sistem informasi manajemen responsif menggunakan HTML, CSS, PHP, dan MySQL.</p>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>Education</h2>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Universitas Gunadarma — S1 Sistem Komputer</strong><span>2023 — Sekarang</span></div>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>SMK Informatika Pesat — Teknik Komputer Jaringan</strong><span>2020 — 2023</span></div>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>Skills</h2>
+            <div class="resume-skills">
+                <span class="tag">Linux Ubuntu</span><span class="tag">Cisco Networking</span><span class="tag">MikroTik</span>
+                <span class="tag">Routing &amp; Switching</span><span class="tag">Subnetting</span><span class="tag">PHP</span>
+                <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Flutter / Dart</span>
+                <span class="tag">Node.js</span><span class="tag">VHDL</span><span class="tag">ESP32 / Arduino</span>
+                <span class="tag">Docker</span><span class="tag">Git</span>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>Certificates</h2>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>BNSP Junior Network Administrator</strong><span></span></div>
+                <p>LSP Informatika — kompetensi nasional bidang Infrastruktur dan Jaringan.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Linux Ubuntu Server 20.04</strong><span></span></div>
+                <p>Instalasi, konfigurasi, user management, networking, dan service management.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>MikroTik Hotspot &amp; Bandwidth Management</strong><span></span></div>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Redistribute Routing Protocol</strong><span></span></div>
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Nafil Fadillah. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

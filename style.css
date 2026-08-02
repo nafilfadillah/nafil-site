@@ -370,6 +370,78 @@ section{
 }
 
 /* ==========================================================================
+   NOW WIDGET
+   ========================================================================== */
+.now-widget{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto 24px;
+    padding: 9px 18px;
+    border-radius: 999px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: .78rem;
+    color: var(--muted);
+    text-align: left;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.now-dot{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--signal);
+    flex-shrink: 0;
+    animation: pulse-dot 1.6s ease-in-out infinite;
+}
+.now-label{
+    color: var(--signal);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+/* ==========================================================================
+   FILTER TABS
+   ========================================================================== */
+.filter-tabs{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.filter-btn{
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .25s ease;
+}
+.filter-btn:hover{ border-color: var(--signal); color: var(--signal); }
+.filter-btn.is-active{
+    background: var(--signal);
+    border-color: var(--signal);
+    color: #16130A;
+    font-weight: 600;
+}
+
+.filter-empty{
+    text-align: center;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    padding: 30px 0;
+}
+
+/* ==========================================================================
    FOCUS / SKILLS CARDS (shared project-card look)
    ========================================================================== */
 .projects-grid{
@@ -393,17 +465,41 @@ section{
     border-color: var(--line-strong);
 }
 
-.project-card img{
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-    filter: saturate(.85);
-    transition: transform .6s ease, filter .35s ease;
+.project-visual{
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at 30% 20%, var(--signal-dim), transparent 60%),
+        var(--panel-2);
+    border-bottom: 1px solid var(--line);
+    transition: background .35s ease;
 }
-.project-card:hover img{ transform: scale(1.06); filter: saturate(1); }
+.project-visual i{
+    font-size: 2.6rem;
+    color: var(--signal);
+    transition: transform .4s ease;
+}
+.project-card:hover .project-visual i{ transform: scale(1.15) rotate(-4deg); }
 
 .project-info{ padding: 24px; }
+
+.card-actions{
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+.card-actions .cv-btn{
+    font-size: .76rem;
+    padding: 7px 12px;
+    border: 1px solid var(--line);
+    background: transparent;
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+.card-actions .cv-btn:hover{ border-color: var(--signal); color: var(--signal); }
 
 .project-info h3{
     font-size: 1.12rem;
@@ -497,6 +593,110 @@ section{
     color: #16130A;
     transform: translateY(-2px);
 }
+
+/* ==========================================================================
+   PROJECT MODAL
+   ========================================================================== */
+.modal-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(5,7,10,.72);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 10000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s ease;
+}
+.modal-overlay.is-open{ opacity: 1; pointer-events: auto; }
+
+.modal{
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    max-width: 560px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 32px;
+    position: relative;
+    transform: translateY(12px);
+    transition: transform .25s ease;
+}
+.modal-overlay.is-open .modal{ transform: translateY(0); }
+
+.modal-close{
+    position: absolute;
+    top: 16px; right: 16px;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-size: 1.3rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color .2s ease, color .2s ease;
+}
+.modal-close:hover{ border-color: var(--signal); color: var(--signal); }
+
+.modal-visual{
+    width: 56px; height: 56px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--signal-dim);
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    font-size: 1.5rem;
+    color: var(--signal);
+}
+
+.modal h3{ font-size: 1.3rem; margin-bottom: 20px; }
+
+.modal-body{ display: flex; flex-direction: column; gap: 16px; margin-bottom: 22px; }
+
+.modal-label{
+    display: block;
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 6px;
+}
+
+.modal-block p{ color: var(--muted); font-size: .9rem; line-height: 1.7; }
+.modal-block .tags{ margin-top: 2px; }
+
+/* ==========================================================================
+   TESTIMONIALS
+   ========================================================================== */
+.testimonials-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.testimonial-card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px;
+}
+
+.testimonial-card i{ color: var(--signal); opacity: .5; font-size: 1.2rem; margin-bottom: 12px; }
+
+.testimonial-card p{
+    color: var(--text);
+    font-size: .92rem;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.testimonial-author strong{ display: block; font-size: .88rem; }
+.testimonial-author span{ display: block; color: var(--muted-2); font-size: .78rem; font-family: var(--font-mono); }
 
 /* ==========================================================================
    TECH STACK MARQUEE
@@ -705,4 +905,60 @@ body.has-custom-cursor{ cursor: none; }
 a:focus-visible, button:focus-visible{
     outline: 2px solid var(--signal);
     outline-offset: 3px;
+}
+
+/* ==========================================================================
+   RESUME PAGE
+   ========================================================================== */
+.resume-page{ max-width: 760px; padding: 130px 20px 80px; }
+
+.resume-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 26px;
+    margin-bottom: 34px;
+}
+.resume-header h1{ font-size: 1.9rem; margin-bottom: 6px; }
+.resume-header .role{ font-family: var(--font-mono); color: var(--signal); font-size: .9rem; margin-bottom: 10px; }
+.resume-contact{ display: flex; flex-direction: column; gap: 4px; font-size: .84rem; color: var(--muted); }
+.resume-contact a{ color: var(--muted); text-decoration: none; }
+.resume-contact a:hover{ color: var(--signal); }
+
+.resume-section{ margin-bottom: 34px; }
+.resume-section h2{
+    font-family: var(--font-mono);
+    font-size: .85rem;
+    color: var(--signal);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+}
+
+.resume-item{ margin-bottom: 18px; }
+.resume-item-head{ display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.resume-item-head strong{ font-size: .96rem; }
+.resume-item-head span{ font-family: var(--font-mono); font-size: .78rem; color: var(--muted-2); }
+.resume-item p{ color: var(--muted); font-size: .88rem; line-height: 1.7; }
+
+.resume-skills{ display: flex; flex-wrap: wrap; gap: 8px; }
+
+.resume-print-btn{
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 500;
+}
+
+@media print{
+    #particles, .navbar, .cursor-dot, .cursor-outline, #loader, footer, .resume-print-btn{ display: none !important; }
+    body{ background: #fff; color: #000; cursor: auto; }
+    .resume-page{ padding: 0; max-width: 100%; }
+    .resume-section h2, .resume-header .role{ color: #000; }
+    a{ color: #000; text-decoration: none; }
 }

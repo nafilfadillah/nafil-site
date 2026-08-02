@@ -1,4 +1,48 @@
 /* =========================================================
+   NAVBAR — scrolled state, mobile menu, scrollspy
+========================================================= */
+(function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (navbar) {
+        const onScroll = () => navbar.classList.toggle('is-scrolled', window.scrollY > 30);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    if (navToggle && navLinks) {
+        const closeMenu = () => {
+            navToggle.classList.remove('is-open');
+            navLinks.classList.remove('is-open');
+            navToggle.setAttribute('aria-expanded', 'false');
+        };
+        navToggle.addEventListener('click', () => {
+            const open = navLinks.classList.toggle('is-open');
+            navToggle.classList.toggle('is-open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+        });
+        navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    }
+
+    const sections = Array.from(document.querySelectorAll('section[id]'));
+    const links = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    if (sections.length && links.length && 'IntersectionObserver' in window) {
+        const setActive = (id) => {
+            links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === `#${id}`));
+        };
+        const spy = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) setActive(entry.target.id);
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        sections.forEach(s => spy.observe(s));
+    }
+})();
+
+/* =========================================================
    PROJECT DETAIL DATA
    Edit di sini kalau mau update isi modal "Details" per project.
    key harus sama persis dengan data-project di HTML.

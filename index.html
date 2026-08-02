@@ -4,895 +4,609 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nafil Portfolio | Network Engineer & Web Developer</title>
+    <title>Nafil Fadillah | Network Engineer & Web Developer</title>
+    <meta name="description" content="Portofolio Nafil Fadillah — Network Engineer, Linux Enthusiast, dan Web Developer yang fokus pada infrastruktur jaringan, server Linux, dan sistem IoT.">
 
-    <!-- CSS -->
+    <!-- Open Graph / social preview — ganti og:url dan og:image sesuai domain lo -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Nafil Fadillah | Network Engineer & Web Developer">
+    <meta property="og:description" content="Portofolio Nafil Fadillah — Network Engineer, Linux Enthusiast, dan Web Developer yang fokus pada infrastruktur jaringan, server Linux, dan sistem IoT.">
+    <meta property="og:image" content="https://nafil.my.id/og-cover.jpg">
+    <meta property="og:url" content="https://nafil.my.id">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nafil Fadillah | Network Engineer & Web Developer">
+    <meta name="twitter:description" content="Network Engineer, Linux Enthusiast, dan Web Developer — Networking, Server, dan IoT.">
+    <meta name="twitter:image" content="https://nafil.my.id/og-cover.jpg">
+    <link rel="canonical" href="https://nafil.my.id">
+
     <link rel="stylesheet" href="style.css">
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- AOS -->
-    <link rel="stylesheet"
-          href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
 
     <div class="cursor-dot"></div>
-<div class="cursor-outline"></div>
+    <div class="cursor-outline"></div>
 
-    <!-- Loading Screen -->
-<div id="loader">
-    <div class="loader-content">
-        <h1>Welcome to Nafil Portofolio</h1>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
+    <div id="loader">
+        <div class="loader-content">
+            <h1><span>&gt;</span> booting nafil.dev ...</h1>
+            <div class="loading-bar"><div class="loading-progress"></div></div>
         </div>
     </div>
-</div>
 
-<!-- Background Particles -->
-<canvas id="particles"></canvas>
-<!-- Navbar -->
-<nav class="navbar">
-    <div class="logo">Nafil</div>
+    <canvas id="particles"></canvas>
 
-    <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#focus">Focus</a>
-    <a href="#education">Education</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#certificates">Certificates</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-</div>
-
-    <button id="themeToggle" aria-label="Toggle Theme">
-        <i class="fas fa-moon"></i>
-    </button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-
-    <div class="hero-content" data-aos="fade-up">
-
-        <!-- Status Badge -->
-        <div class="hero-badge">
-            <i class="fas fa-circle"></i>
-            Available for Internship & Freelance
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">nafil</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#focus">Focus</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
+        <button id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    </nav>
 
-        <!-- Profile -->
-        <img src="nafil.jpg"
-             alt="Nafil Fadillah"
-             class="profile">
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up">
 
-        <!-- Name -->
-        <h1>
-            Hi, I'm <span>Nafil Fadillah</span>
-        </h1>
+            <div class="hero-badge">
+                <i class="fas fa-circle"></i>
+                available for internship &amp; freelance
+            </div>
 
-        <!-- Typing Effect -->
-        <p id="typing"></p>
+            <img src="nafil.jpg" alt="Nafil Fadillah" class="profile">
 
-        <!-- Subtitle -->
-        <p class="hero-subtitle">
-            Network Engineer • Linux Enthusiast • Web Developer
-        </p>
+            <h1>Hi, I'm <span>Nafil Fadillah</span></h1>
 
-        <!-- Description -->
-        <p class="hero-desc">
-            Mahasiswa Sistem Komputer yang fokus pada Networking,
-            Linux Server Administration, Web Development,
-            dan Internet of Things (IoT).
-        </p>
+            <p id="typing"></p>
+            <p class="hero-subtitle">mahasiswa Sistem Komputer — Networking · Linux · IoT</p>
 
-        <!-- Buttons -->
-        <div class="btns">
+            <p class="hero-desc">
+                Mahasiswa Sistem Komputer yang fokus pada Networking,
+                Linux Server Administration, Web Development,
+                dan Internet of Things (IoT).
+            </p>
 
-            <a href="#projects" class="btn btn-primary">
-                <i class="fas fa-rocket"></i>
-                View Projects
-            </a>
+            <!-- "Now" widget — update field data-updated dan teksnya kapan pun status lo berubah -->
+            <div class="now-widget">
+                <span class="now-dot"></span>
+                <span class="now-label">now</span>
+                <span class="now-text">menyelesaikan skripsi — ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System</span>
+            </div>
 
-            <a href="cv.pdf" target="_blank"
-               class="btn btn-outline">
-                <i class="fas fa-file-pdf"></i>
-                View CV
-            </a>
+            <div class="btns">
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
+                <a href="cv.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> View CV</a>
+                <a href="resume.html" class="btn btn-outline"><i class="fas fa-id-card"></i> Web Resume</a>
+            </div>
+
+            <div class="hero-social">
+                <a href="https://github.com/nafilfadillah" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://wa.me/6281573903440" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://instagram.com/_nafil_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:nafilfadillah09@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
 
         </div>
+    </section>
 
-        <!-- Social Media -->
-        <div class="hero-social">
+    <!-- About & Stats -->
+    <section id="about">
+        <span class="eyebrow">cat about.md</span>
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-container">
+            <div data-aos="fade-right">
+                <p>
+                    Saya adalah mahasiswa yang passionate di bidang teknologi jaringan komputer dan pengembangan web.
+                    Fokus utama saya adalah membangun infrastruktur jaringan yang stabil dan modern menggunakan
+                    peralatan MikroTik dan Cisco.
+                </p>
+                <p>
+                    Saya senang mempelajari teknologi baru, terutama yang berkaitan dengan keamanan siber, otomatisasi
+                    jaringan, dan desain antarmuka pengguna yang modern.
+                </p>
+            </div>
+            <div data-aos="fade-left" id="stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="statProjects">0</h3>
+                        <p>projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="statTech">0</h3>
+                        <p>teknologi</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="statYears">0</h3>
+                        <p>tahun belajar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <a href="https://github.com/nafilfadillah" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
+    <!-- Focus -->
+    <section id="focus">
+        <span class="eyebrow">ls ~/focus</span>
+        <h2 class="section-title" data-aos="fade-up">Current Focus</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="zoom-in">
+                <div class="project-info">
+                    <h3>Networking</h3>
+                    <p>Advanced routing, switching, VLAN, bandwidth management, Cisco &amp; MikroTik infrastructure.</p>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-info">
+                    <h3>Linux Server</h3>
+                    <p>Ubuntu Server administration, Mail/DNS server configuration, Docker, Nginx, dan VPS security.</p>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-info">
+                    <h3>Web Development</h3>
+                    <p>Membangun web management tools yang responsif &amp; dinamis dengan HTML5, CSS3, PHP, dan MySQL.</p>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="project-info">
+                    <h3>Embedded &amp; Digital System</h3>
+                    <p>Hardware logic simulation dengan VHDL, digital circuit analysis, ESP32, dan hardware monitoring.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <a href="https://wa.me/6281573903440" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-            </a>
+    <!-- Tech Stack -->
+    <div class="logo-slider">
+        <div class="logo-track">
+            <div class="logo-item"><i class="fas fa-network-wired"></i><span>Cisco</span></div>
+            <div class="logo-item"><i class="fas fa-wifi"></i><span>MikroTik</span></div>
+            <div class="logo-item"><i class="fab fa-linux"></i><span>Linux</span></div>
+            <div class="logo-item"><i class="fab fa-ubuntu"></i><span>Ubuntu</span></div>
+            <div class="logo-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="logo-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="logo-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            <div class="logo-item"><i class="fab fa-php"></i><span>PHP</span></div>
+            <div class="logo-item"><i class="fab fa-python"></i><span>Python</span></div>
+            <div class="logo-item"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+            <div class="logo-item"><i class="fas fa-database"></i><span>MySQL</span></div>
+            <div class="logo-item"><i class="fas fa-database"></i><span>MongoDB</span></div>
+            <div class="logo-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            <div class="logo-item"><i class="fab fa-github"></i><span>GitHub</span></div>
+            <div class="logo-item"><i class="fab fa-docker"></i><span>Docker</span></div>
+            <div class="logo-item"><i class="fas fa-cloud"></i><span>Cloudflare</span></div>
+            <div class="logo-item"><i class="fas fa-microchip"></i><span>Arduino</span></div>
+            <div class="logo-item"><i class="fas fa-microchip"></i><span>ESP32</span></div>
+            <div class="logo-item"><i class="fas fa-server"></i><span>REST API</span></div>
 
-            <a href="https://instagram.com/_nafil_" target="_blank">
-                <i class="fab fa-instagram"></i>
-            </a>
+            <!-- duplicate set for seamless loop -->
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-network-wired"></i><span>Cisco</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-wifi"></i><span>MikroTik</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-linux"></i><span>Linux</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-ubuntu"></i><span>Ubuntu</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-html5"></i><span>HTML5</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-php"></i><span>PHP</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-python"></i><span>Python</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-node-js"></i><span>Node.js</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-database"></i><span>MySQL</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-database"></i><span>MongoDB</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-git-alt"></i><span>Git</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-github"></i><span>GitHub</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fab fa-docker"></i><span>Docker</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-cloud"></i><span>Cloudflare</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-microchip"></i><span>Arduino</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-microchip"></i><span>ESP32</span></div>
+            <div class="logo-item" aria-hidden="true"><i class="fas fa-server"></i><span>REST API</span></div>
+        </div>
+    </div>
 
-            <a href="mailto:nafilfadillah09@gmail.com">
+    <!-- Education -->
+    <section id="education">
+        <span class="eyebrow">cat education.log</span>
+        <h2 class="section-title">Education</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Universitas Gunadarma</h3>
+                    <p>S1 Sistem Komputer</p>
+                    <span>2023 — Sekarang</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>SMK Informatika Pesat</h3>
+                    <p>Teknik Komputer Jaringan</p>
+                    <span>2020 — 2023</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <span class="eyebrow">cat experience.log</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="zoom-in">
+                <div class="project-info">
+                    <h3>Laboratory Assistant</h3>
+                    <p>
+                        Membimbing praktikan dalam memahami konsep jaringan dan administrasi server.
+                        Bertanggung jawab atas konfigurasi, maintenance, dan troubleshooting layanan server
+                        (DNS, Mail, Web Server) berbasis Linux Ubuntu di lingkungan laboratorium.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Linux Ubuntu</span>
+                        <span class="tag">Server Config</span>
+                        <span class="tag">Troubleshooting</span>
+                        <span class="tag">Mentoring</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-info">
+                    <h3>IT Support</h3>
+                    <p>
+                        Konfigurasi VLAN, routing, switching, DHCP, dan subnetting menggunakan
+                        Cisco Packet Tracer. Memperbaiki PC dan audit perangkat digital.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">Cisco</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Hardware</span>
+                        <span class="tag">Audit</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-info">
+                    <h3>Web Development</h3>
+                    <p>
+                        Membuat website dan sistem informasi manajemen yang responsif
+                        dan dinamis menggunakan HTML, CSS, PHP, dan MySQL.
+                    </p>
+                    <div class="tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">PHP</span>
+                        <span class="tag">MySQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <span class="eyebrow">skills --list</span>
+        <h2 class="section-title" data-aos="fade-up">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card" data-aos="fade-up"><i class="fab fa-linux" style="color:#FCC624"></i><p>Linux Ubuntu</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="50"><i class="fas fa-server" style="color:#34D399"></i><p>Server Configuration</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-network-wired" style="color:#00BFFF"></i><p>Cisco Networking</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><i class="fas fa-wifi" style="color:#FF6B00"></i><p>MikroTik</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="50"><i class="fas fa-project-diagram" style="color:#00C896"></i><p>Cisco Packet Tracer</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-route" style="color:#A855F7"></i><p>Routing &amp; Switching</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><i class="fas fa-sitemap" style="color:#F43F5E"></i><p>Subnetting</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fab fa-php" style="color:#777BB4"></i><p>PHP</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100"><i class="fas fa-mobile-alt" style="color:#02569B"></i><p>Flutter / Dart</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><i class="fab fa-python" style="color:#3776AB"></i><p>Python</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fas fa-database" style="color:#4479A1"></i><p>MySQL</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="250"><i class="fas fa-microchip" style="color:#F0B429"></i><p>VHDL / Hardware Logic</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="150"><i class="fab fa-html5" style="color:#E34F26"></i><p>HTML5</p></div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200"><i class="fab fa-css3-alt" style="color:#1572B6"></i><p>CSS3</p></div>
+        </div>
+    </section>
+
+    <!-- Certificates -->
+    <section id="certificates">
+        <span class="eyebrow">ls certificates/</span>
+        <h2 class="section-title">Certificates</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-aos="zoom-in">
+                <div class="project-info">
+                    <h3>🏆 BNSP Junior Network Administrator</h3>
+                    <p>Sertifikasi kompetensi nasional bidang Infrastruktur dan Jaringan sebagai Junior Network Administrator dari LSP Informatika.</p>
+                    <div class="tags"><span class="tag">BNSP</span><span class="tag">Networking</span></div>
+                    <a href="netadmin.pdf" target="_blank" class="view-pdf-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-info">
+                    <h3>🐧 Linux Ubuntu Server 20.04</h3>
+                    <p>Sertifikasi pelatihan administrasi server Linux meliputi instalasi, konfigurasi, user management, networking, dan service management.</p>
+                    <div class="tags"><span class="tag">Linux</span><span class="tag">Ubuntu</span></div>
+                    <a href="linux.pdf" target="_blank" class="view-pdf-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-info">
+                    <h3>📡 MikroTik Hotspot &amp; Bandwidth Management</h3>
+                    <p>Sertifikasi kompetensi resmi dalam membangun jaringan kantor dengan manajemen hotspot dan limitasi bandwidth.</p>
+                    <div class="tags"><span class="tag">MikroTik</span><span class="tag">RouterOS</span></div>
+                    <a href="bandwith.pdf" target="_blank" class="view-pdf-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                </div>
+            </div>
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="project-info">
+                    <h3>🌐 Redistribute Routing Protocol</h3>
+                    <p>Uji kompetensi teknis dalam membangun infrastruktur jaringan kantor skala enterprise menggunakan metode redistribute routing protocol.</p>
+                    <div class="tags"><span class="tag">Routing</span><span class="tag">Cisco</span></div>
+                    <a href="redistribute.pdf" target="_blank" class="view-pdf-btn"><i class="fas fa-file-pdf"></i> View PDF</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <span class="eyebrow">ls ~/projects</span>
+        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+
+        <div class="filter-tabs" role="tablist" aria-label="Filter project by category">
+            <button class="filter-btn is-active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="networking">Networking</button>
+            <button class="filter-btn" data-filter="security">Security</button>
+            <button class="filter-btn" data-filter="development">Development</button>
+            <button class="filter-btn" data-filter="iot">IoT</button>
+        </div>
+
+        <!--
+            Ganti href pada .card-repo dengan link repo asli lo.
+            Klik "Details" buka modal dari data project di script.js (array PROJECTS) — edit di sana.
+        -->
+        <div class="projects-grid" id="projectsGrid">
+
+            <div class="project-card" data-aos="zoom-in" data-category="iot" data-project="air-quality">
+                <div class="project-visual"><i class="fas fa-wind"></i></div>
+                <div class="project-info">
+                    <h3>IoT Air Quality Monitoring</h3>
+                    <p>Sistem monitoring kualitas udara berbasis ESP32, MQ135, DHT22, dan PIR dengan dashboard website real-time untuk pemantauan lingkungan.</p>
+                    <div class="tags"><span class="tag">ESP32</span><span class="tag">MQ135</span><span class="tag">DHT22</span><span class="tag">IoT</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="air-quality"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/air-quality-monitoring" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="100" data-category="development" data-project="hospital">
+                <div class="project-visual"><i class="fas fa-notes-medical"></i></div>
+                <div class="project-info">
+                    <h3>Hospital Management System</h3>
+                    <p>Sistem manajemen rumah sakit dengan fitur data pasien, dokter, obat, rekam medis, dan laporan berbasis MySQL.</p>
+                    <div class="tags"><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">Database</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="hospital"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/hospital-management" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="200" data-category="networking" data-project="mail-server">
+                <div class="project-visual"><i class="fas fa-envelope-open-text"></i></div>
+                <div class="project-info">
+                    <h3>Ubuntu Mail Server</h3>
+                    <p>Implementasi Postfix dan Dovecot pada Ubuntu Server dengan konfigurasi SPF, DKIM, dan DMARC.</p>
+                    <div class="tags"><span class="tag">Linux</span><span class="tag">Postfix</span><span class="tag">Dovecot</span><span class="tag">Mail</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="mail-server"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/mail-server-config" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="300" data-category="networking" data-project="dns-server">
+                <div class="project-visual"><i class="fas fa-sitemap"></i></div>
+                <div class="project-info">
+                    <h3>DNS Server Ubuntu</h3>
+                    <p>Konfigurasi BIND9 untuk forward zone, reverse zone, dan name resolution pada jaringan lokal.</p>
+                    <div class="tags"><span class="tag">Ubuntu</span><span class="tag">BIND9</span><span class="tag">DNS</span><span class="tag">Networking</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="dns-server"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/dns-server-config" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="400" data-category="security" data-project="vpn">
+                <div class="project-visual"><i class="fas fa-shield-halved"></i></div>
+                <div class="project-info">
+                    <h3>WireGuard VPN Server</h3>
+                    <p>VPN berbasis WireGuard untuk akses jaringan laboratorium dari luar kampus secara aman.</p>
+                    <div class="tags"><span class="tag">WireGuard</span><span class="tag">VPN</span><span class="tag">Linux</span><span class="tag">Security</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="vpn"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/wireguard-vpn" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="500" data-category="networking" data-project="monitoring">
+                <div class="project-visual"><i class="fas fa-chart-line"></i></div>
+                <div class="project-info">
+                    <h3>Network Monitoring Dashboard</h3>
+                    <p>Dashboard monitoring bandwidth, uptime server, trafik jaringan, dan performa perangkat secara real-time.</p>
+                    <div class="tags"><span class="tag">Monitoring</span><span class="tag">Linux</span><span class="tag">Dashboard</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="monitoring"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/network-monitoring" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="600" data-category="security" data-project="cyberlab">
+                <div class="project-visual"><i class="fas fa-user-secret"></i></div>
+                <div class="project-info">
+                    <h3>Cyber Security Lab</h3>
+                    <p>Simulasi keamanan jaringan menggunakan Kali Linux, Wireshark, Nmap, dan Metasploit untuk pembelajaran penetration testing dasar.</p>
+                    <div class="tags"><span class="tag">Kali Linux</span><span class="tag">Wireshark</span><span class="tag">Nmap</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="cyberlab"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/cyber-security-lab" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="zoom-in" data-aos-delay="700" data-category="development" data-project="portfolio">
+                <div class="project-visual"><i class="fas fa-globe"></i></div>
+                <div class="project-info">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>Website portfolio pribadi yang di-host menggunakan GitHub Pages dan Cloudflare dengan custom domain.</p>
+                    <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Cloudflare</span></div>
+                    <div class="card-actions">
+                        <button class="cv-btn card-details" data-project="portfolio"><i class="fas fa-circle-info"></i> Details</button>
+                        <a class="cv-btn card-repo" href="https://github.com/nafilfadillah/portfolio" target="_blank"><i class="fab fa-github"></i> Code</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="filter-empty" id="filterEmpty" hidden>Belum ada project di kategori ini.</p>
+    </section>
+
+    <!-- Project detail modal -->
+    <div class="modal-overlay" id="projectModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <div class="modal-visual" id="modalVisual"><i class="fas fa-wind"></i></div>
+            <h3 id="modalTitle">Project name</h3>
+            <div class="modal-body">
+                <div class="modal-block">
+                    <span class="modal-label">Problem</span>
+                    <p id="modalProblem"></p>
+                </div>
+                <div class="modal-block">
+                    <span class="modal-label">Architecture / Approach</span>
+                    <p id="modalArch"></p>
+                </div>
+                <div class="modal-block">
+                    <span class="modal-label">Tools</span>
+                    <div class="tags" id="modalTools"></div>
+                </div>
+                <div class="modal-block">
+                    <span class="modal-label">Outcome</span>
+                    <p id="modalOutcome"></p>
+                </div>
+            </div>
+            <a class="btn btn-primary" id="modalRepo" href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <!-- TODO: ganti isi quote & nama di bawah dengan testimoni asli dari dosen pembimbing/klien/tim lab -->
+    <section id="testimonials">
+        <span class="eyebrow">cat testimonials.log</span>
+        <h2 class="section-title" data-aos="fade-up">Apa Kata Mereka</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up">
+                <i class="fas fa-quote-left"></i>
+                <p>[Quote singkat dari dosen pembimbing / rekan tim soal cara kerja lo.]</p>
+                <div class="testimonial-author">
+                    <strong>Nama Pemberi Testimoni</strong>
+                    <span>Jabatan / Institusi</span>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-quote-left"></i>
+                <p>[Quote singkat dari klien freelance atau anggota lab soal hasil kerja lo.]</p>
+                <div class="testimonial-author">
+                    <strong>Nama Pemberi Testimoni</strong>
+                    <span>Jabatan / Institusi</span>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-quote-left"></i>
+                <p>[Quote singkat lainnya.]</p>
+                <div class="testimonial-author">
+                    <strong>Nama Pemberi Testimoni</strong>
+                    <span>Jabatan / Institusi</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <span class="eyebrow">contact --send</span>
+        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+
+        <div class="contact-container">
+            <div class="contact-card" data-aos="zoom-in">
                 <i class="fas fa-envelope"></i>
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-<!-- About & Stats -->
-<section id="about">
-    <div class="about-container">
-        <div data-aos="fade-right">
-            <h2 class="section-title" style="text-align: left; left: 0; transform: none; display: block;">Tentang Saya</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">
-                Saya adalah mahasiswa yang passionate di bidang teknologi jaringan komputer dan pengembangan web. Fokus utama saya adalah membangun infrastruktur jaringan yang stabil modern dengan menggunakan peralatan Mikrotik dan Cisco.
-            </p>
-            <p style="color: var(--text-muted);">
-                Saya senang mempelajari teknologi baru, terutama yang berkaitan dengan keamanan siber, otomatisasi jaringan, dan desain antarmuka pengguna yang modern.
-            </p>
-        </div>
-        <div data-aos="fade-left" id="stats">
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h3>0</h3>
-                    <p>Projects</p>
-                </div>
-                <div class="stat-card">
-                    <h3>0</h3>
-                    <p>Teknologi</p>
-                </div>
-                <div class="stat-card">
-                    <h3>0</h3>
-                    <p>Tahun Belajar</p>
-                </div>
+                <h3>Email</h3>
+                <p><a href="mailto:nafilfadillah09@gmail.com">nafilfadillah09@gmail.com</a></p>
             </div>
-        </div>
-    </div>
-</section>
 
-<section id="focus">
-
-    <h2 class="section-title" data-aos="fade-up">Current Focus</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card" data-aos="zoom-in">
-            <div class="project-info">
-                <h3>🌐 Networking</h3>
-                <p>Advanced Routing, Switching, VLAN, Bandwidth Management, Cisco & MikroTik Infrastructure.</p>
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="50">
+                <i class="fab fa-whatsapp"></i>
+                <h3>WhatsApp</h3>
+                <p><a href="https://wa.me/6281573903440" target="_blank">+62 815-7390-3440</a></p>
             </div>
-        </div>
 
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-            <div class="project-info">
-                <h3>🐧 Linux Server</h3>
-                <p>Ubuntu Server Administration, Mail/DNS Server configuration, Docker, Nginx, and VPS Security.</p>
+            <!-- TODO: ganti USERNAME dengan username LinkedIn & GitHub asli lo -->
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p><a href="https://linkedin.com/in/USERNAME" target="_blank">linkedin.com/in/USERNAME</a></p>
             </div>
-        </div>
 
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-            <div class="project-info">
-                <h3>💻 Web Development</h3>
-                <p>Building responsive & dynamic web management tools using HTML5, CSS3, PHP, and MySQL database.</p>
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="150">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <p><a href="https://github.com/nafilfadillah" target="_blank">github.com/nafilfadillah</a></p>
             </div>
-        </div>
 
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-            <div class="project-info">
-                <h3>🤖 Embedded & Digital System</h3>
-                <p>Hardware logic simulation using VHDL, digital circuit analysis, ESP32, and hardware monitoring systems.</p>
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+                <i class="fab fa-instagram"></i>
+                <h3>Instagram</h3>
+                <p><a href="https://instagram.com/_nafil_" target="_blank">@_nafil_</a></p>
             </div>
-        </div>
 
-    </div>
-</section>
-<!-- Tech Stack Infinite Slider -->
-<div class="logo-slider">
-    <div class="logo-track">
-
-        <!-- ==================== SET 1 (Item Asli) ==================== -->
-        <!-- NETWORKING -->
-        <div class="logo-item">
-            <i class="fas fa-network-wired"></i>
-            <span>Cisco</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-wifi"></i>
-            <span>MikroTik</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-linux"></i>
-            <span>Linux</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-ubuntu"></i>
-            <span>Ubuntu</span>
-        </div>
-
-        <!-- FRONTEND -->
-        <div class="logo-item">
-            <i class="fab fa-html5"></i>
-            <span>HTML5</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-css3-alt"></i>
-            <span>CSS3</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-js"></i>
-            <span>JavaScript</span>
-        </div>
-
-        <!-- BACKEND -->
-        <div class="logo-item">
-            <i class="fab fa-php"></i>
-            <span>PHP</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-python"></i>
-            <span>Python</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-node-js"></i>
-            <span>Node.js</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-database"></i>
-            <span>MySQL</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-database"></i>
-            <span>MongoDB</span>
-        </div>
-
-        <!-- DEVOPS / TOOLS -->
-        <div class="logo-item">
-            <i class="fab fa-git-alt"></i>
-            <span>Git</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-docker"></i>
-            <span>Docker</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-cloud"></i>
-            <span>Cloudflare</span>
-        </div>
-
-        <!-- IOT & SYSTEM -->
-        <div class="logo-item">
-            <i class="fas fa-microchip"></i>
-            <span>Arduino</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-microchip"></i>
-            <span>ESP32</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-server"></i>
-            <span>REST API</span>
-        </div>
-
-
-        <!-- ==================== SET 2 (Duplikat Persis untuk Loop) ==================== -->
-        <!-- NETWORKING -->
-        <div class="logo-item">
-            <i class="fas fa-network-wired"></i>
-            <span>Cisco</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-wifi"></i>
-            <span>MikroTik</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-linux"></i>
-            <span>Linux</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-ubuntu"></i>
-            <span>Ubuntu</span>
-        </div>
-
-        <!-- FRONTEND -->
-        <div class="logo-item">
-            <i class="fab fa-html5"></i>
-            <span>HTML5</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-css3-alt"></i>
-            <span>CSS3</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-js"></i>
-            <span>JavaScript</span>
-        </div>
-
-        <!-- BACKEND -->
-        <div class="logo-item">
-            <i class="fab fa-php"></i>
-            <span>PHP</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-python"></i>
-            <span>Python</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-node-js"></i>
-            <span>Node.js</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-database"></i>
-            <span>MySQL</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-database"></i>
-            <span>MongoDB</span>
-        </div>
-
-        <!-- DEVOPS / TOOLS -->
-        <div class="logo-item">
-            <i class="fab fa-git-alt"></i>
-            <span>Git</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-github"></i>
-            <span>GitHub</span>
-        </div>
-        <div class="logo-item">
-            <i class="fab fa-docker"></i>
-            <span>Docker</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-cloud"></i>
-            <span>Cloudflare</span>
-        </div>
-
-        <!-- IOT & SYSTEM -->
-        <div class="logo-item">
-            <i class="fas fa-microchip"></i>
-            <span>Arduino</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-microchip"></i>
-            <span>ESP32</span>
-        </div>
-        <div class="logo-item">
-            <i class="fas fa-server"></i>
-            <span>REST API</span>
-        </div>
-
-    </div>
-</div>
-
-<!-- Education -->
-<section id="education">
-
-    <h2 class="section-title">Education</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card">
-            <div class="project-info">
-                <h3>Universitas Gunadarma</h3>
-                <p>S1 Sistem Komputer</p>
-                <span>2023 - Sekarang</span>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-info">
-                <h3>SMK Informatika Pesat</h3>
-                <p>Teknik Komputer Jaringan</p>
-                <span>2020 - 2023</span>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- Experience -->
-<section id="experience">
-
-    <h2 class="section-title">Experience</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card" data-aos="zoom-in">
-            <div class="project-info">
-                <h3>Laboratory Assistant</h3>
-                <p>
-                    Membimbing praktikan dalam memahami konsep jaringan dan administrasi server. 
-                    Bertanggung jawab atas konfigurasi, maintenance, dan troubleshooting layanan server 
-                    (DNS, Mail, Web Server) berbasis Linux Ubuntu di lingkungan laboratorium.
-                </p>
-
-                <div class="tags">
-                    <span class="tag">Linux Ubuntu</span>
-                    <span class="tag">Server Configuration</span>
-                    <span class="tag">Troubleshooting</span>
-                    <span class="tag">Mentoring</span>
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="250">
+                <i class="fas fa-file-pdf"></i>
+                <h3>Curriculum Vitae</h3>
+                <div class="cv-buttons">
+                    <a href="cv.pdf" target="_blank" class="cv-btn view-cv-btn"><i class="fas fa-eye"></i> View CV</a>
+                    <a href="cv.pdf" download="CV_Nafil_Fadillah.pdf" class="cv-btn download-cv-btn"><i class="fas fa-download"></i> Download</a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-            <div class="project-info">
-                <h3>IT Support</h3>
-                <p>
-                    Konfigurasi VLAN, Routing, Switching,
-                    DHCP dan Subnetting menggunakan
-                    Cisco Packet Tracer. Memperbaiki PC dan audit perangkat digital.
-                </p>
+    <footer>
+        <p>© 2026 Nafil Fadillah. All rights reserved.</p>
+    </footer>
 
-                <div class="tags">
-                    <span class="tag">Cisco</span>
-                    <span class="tag">Networking</span>
-                    <span class="tag">Hardware</span>
-                    <span class="tag">Audit</span>
-                </div>
-            </div>
-        </div>
+    <!--
+        Analytics — ganti visitor-badge (nggak akurat & bukan real analytics) dengan
+        privacy-friendly analytics kayak Umami (https://umami.is) atau Plausible (https://plausible.io).
+        Keduanya nggak pake cookie & GDPR-friendly. Contoh setelah lo self-host / daftar Umami cloud:
 
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-            <div class="project-info">
-                <h3>Web Development</h3>
-                <p>
-                    Membuat website dan sistem informasi manajemen yang responsif 
-                    dan dinamis menggunakan HTML, CSS, PHP, dan MySQL.
-                </p>
+        <script defer src="https://YOUR-UMAMI-INSTANCE/script.js" data-website-id="YOUR-WEBSITE-ID"></script>
 
-                <div class="tags">
-                    <span class="tag">HTML/CSS</span>
-                    <span class="tag">PHP</span>
-                    <span class="tag">MySQL</span>
-                </div>
-            </div>
-        </div>
+        Taruh script itu tepat sebelum </body>, lalu lo bisa liat jumlah visitor asli + halaman
+        yang paling banyak dibuka lewat dashboard Umami/Plausible-nya.
+    -->
 
-    </div>
-
-</section>
-
-<!-- Skills -->
-<section id="skills">
-    <h2 class="section-title" data-aos="fade-up">Skills</h2>
-
-    <div class="skills-grid">
-
-        <!-- Baris 1 -->
-        <div class="skill-card" data-aos="fade-up">
-            <i class="fab fa-linux" style="color:#FCC624"></i>
-            <p>Linux Ubuntu</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
-            <i class="fas fa-server" style="color:#10B981"></i>
-            <p>Server Configuration</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-network-wired" style="color:#00BFFF"></i>
-            <p>Cisco Networking</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
-            <i class="fas fa-wifi" style="color:#FF6B00"></i>
-            <p>MikroTik</p>
-        </div>
-
-        <!-- Baris 2 -->
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="50">
-            <i class="fas fa-project-diagram" style="color:#00C896"></i>
-            <p>Cisco Packet Tracer</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-route" style="color:#A855F7"></i>
-            <p>Routing & Switching</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
-            <i class="fas fa-sitemap" style="color:#F43F5E"></i>
-            <p>Subnetting</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fab fa-php" style="color:#777BB4"></i>
-            <p>PHP</p>
-        </div>
-
-        <!-- Baris 3 -->
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-            <i class="fas fa-mobile-alt" style="color:#02569B"></i>
-            <p>Flutter / Dart</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
-            <i class="fab fa-python" style="color:#3776AB"></i>
-            <p>Python</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fas fa-database" style="color:#4479A1"></i>
-            <p>MySQL</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="250">
-            <i class="fas fa-microchip" style="color:#FF9F00"></i>
-            <p>VHDL / Hardware Logic</p>
-        </div>
-
-        <!-- Baris 4 -->
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="150">
-            <i class="fab fa-html5" style="color:#E34F26"></i>
-            <p>HTML5</p>
-        </div>
-
-        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-            <i class="fab fa-css3-alt" style="color:#1572B6"></i>
-            <p>CSS3</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- Certificates -->
-<section id="certificates">
-
-    <h2 class="section-title">Certificates</h2>
-
-    <div class="projects-grid">
-
-        <div class="project-card" data-aos="zoom-in">
-            <div class="project-info">
-                <h3>🏆 BNSP Junior Network Administrator</h3>
-                <p>Sertifikasi kompetensi nasional bidang Infrastruktur dan Jaringan sebagai Junior Network Administrator dari LSP Informatika.</p>
-                <div class="tags">
-                    <span class="tag">BNSP</span>
-                    <span class="tag">Networking</span>
-                </div>
-                <a href="netadmin.pdf" target="_blank" class="view-pdf-btn">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-            <div class="project-info">
-                <h3>🐧 Linux Ubuntu Server 20.04</h3>
-                <p>Sertifikasi pelatihan administrasi server Linux meliputi instalasi, konfigurasi, user management, networking, dan service management.</p>
-                <div class="tags">
-                    <span class="tag">Linux</span>
-                    <span class="tag">Ubuntu</span>
-                </div>
-                <a href="linux.pdf" target="_blank" class="view-pdf-btn">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-            <div class="project-info">
-                <h3>📡 MikroTik Hotspot & Bandwidth Management</h3>
-                <p>Sertifikasi kompetensi resmi dalam membangun jaringan kantor dengan manajemen hotspot dan limitasi bandwidth.</p>
-                <div class="tags">
-                    <span class="tag">MikroTik</span>
-                    <span class="tag">RouterOS</span>
-                </div>
-                <a href="bandwith.pdf" target="_blank" class="view-pdf-btn">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-        </div>
-
-        <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-            <div class="project-info">
-                <h3>🌐 Redistribute Routing Protocol</h3>
-                <p>Uji kompetensi teknis dalam membangun infrastruktur jaringan kantor skala enterprise menggunakan metode redistribute routing protocol.</p>
-                <div class="tags">
-                    <span class="tag">Routing</span>
-                    <span class="tag">Cisco</span>
-                </div>
-                <a href="redistribute.pdf" target="_blank" class="view-pdf-btn">
-                    <i class="fas fa-file-pdf"></i> View PDF
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- Projects -->
-
-<section id="projects">
-    <h2 class="section-title" data-aos="fade-up">Projects</h2>
-
-```
-<div class="projects-grid">
-
-    <!-- IoT Air Quality -->
-    <div class="project-card" data-aos="zoom-in">
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800" alt="IoT Air Quality">
-
-        <div class="project-info">
-            <h3>IoT Air Quality Monitoring</h3>
-            <p>
-                Sistem monitoring kualitas udara berbasis ESP32,
-                MQ135, DHT22, dan PIR dengan dashboard website
-                real-time untuk pemantauan lingkungan.
-            </p>
-
-            <div class="tags">
-                <span class="tag">ESP32</span>
-                <span class="tag">MQ135</span>
-                <span class="tag">DHT22</span>
-                <span class="tag">IoT</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Hospital Management -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800" alt="Hospital System">
-
-        <div class="project-info">
-            <h3>Hospital Management System</h3>
-            <p>
-                Sistem manajemen rumah sakit dengan fitur data pasien,
-                dokter, obat, rekam medis, dan laporan berbasis MySQL.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">MySQL</span>
-                <span class="tag">Database</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mail Server -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800" alt="Mail Server">
-
-        <div class="project-info">
-            <h3>Ubuntu Mail Server</h3>
-            <p>
-                Implementasi Postfix dan Dovecot pada Ubuntu Server
-                dengan konfigurasi SPF, DKIM, dan DMARC.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Linux</span>
-                <span class="tag">Postfix</span>
-                <span class="tag">Dovecot</span>
-                <span class="tag">Mail</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- DNS Server -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800" alt="DNS Server">
-
-        <div class="project-info">
-            <h3>DNS Server Ubuntu</h3>
-            <p>
-                Konfigurasi BIND9 untuk forward zone,
-                reverse zone, dan name resolution pada jaringan lokal.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Ubuntu</span>
-                <span class="tag">BIND9</span>
-                <span class="tag">DNS</span>
-                <span class="tag">Networking</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- WireGuard VPN -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800" alt="VPN">
-
-        <div class="project-info">
-            <h3>WireGuard VPN Server</h3>
-            <p>
-                VPN berbasis WireGuard untuk akses jaringan
-                laboratorium dari luar kampus secara aman.
-            </p>
-
-            <div class="tags">
-                <span class="tag">WireGuard</span>
-                <span class="tag">VPN</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Security</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Monitoring -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="500">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800" alt="Monitoring">
-
-        <div class="project-info">
-            <h3>Network Monitoring Dashboard</h3>
-            <p>
-                Dashboard monitoring bandwidth, uptime server,
-                trafik jaringan, dan performa perangkat secara real-time.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Monitoring</span>
-                <span class="tag">Linux</span>
-                <span class="tag">Dashboard</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cyber Security -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="600">
-        <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?w=800" alt="Cyber Security">
-
-        <div class="project-info">
-            <h3>Cyber Security Lab</h3>
-            <p>
-                Simulasi keamanan jaringan menggunakan Kali Linux,
-                Wireshark, Nmap, dan Metasploit untuk pembelajaran
-                penetration testing dasar.
-            </p>
-
-            <div class="tags">
-                <span class="tag">Kali Linux</span>
-                <span class="tag">Wireshark</span>
-                <span class="tag">Nmap</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Portfolio -->
-    <div class="project-card" data-aos="zoom-in" data-aos-delay="700">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Portfolio">
-
-        <div class="project-info">
-            <h3>Personal Portfolio Website</h3>
-            <p>
-                Website portfolio pribadi yang di-host menggunakan
-                GitHub Pages dan Cloudflare dengan custom domain.
-            </p>
-
-            <div class="tags">
-                <span class="tag">HTML</span>
-                <span class="tag">CSS</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Cloudflare</span>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-
-</section>
-
-
-<!-- CONTACT -->
-<section id="contact">
-
-    <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
-
-    <div class="contact-container">
-
-        <div class="contact-card" data-aos="zoom-in">
-            <i class="fas fa-envelope"></i>
-            <h3>Email</h3>
-            <p>
-                <a href="mailto:nafilfadillah09@gmail.com">
-                    nafilfadillah09@gmail.com
-                </a>
-            </p>
-        </div>
-
-        <div class="contact-card" data-aos="zoom-in" data-aos-delay="50">
-            <i class="fab fa-whatsapp"></i>
-            <h3>WhatsApp</h3>
-            <p>
-                <a href="https://wa.me/6281573903440"
-   class="whatsapp-float"
-   target="_blank">
-   <i class="fab fa-whatsapp"></i>
-</a>
-            </p>
-        </div>
-
-        <div class="contact-card" data-aos="zoom-in" data-aos-delay="100">
-            <i class="fab fa-linkedin"></i>
-            <h3>LinkedIn</h3>
-            <p>
-                <a href="https://linkedin.com/in/USERNAME" target="_blank">
-                    linkedin.com/in/USERNAME
-                </a>
-            </p>
-        </div>
-
-        <div class="contact-card" data-aos="zoom-in" data-aos-delay="150">
-            <i class="fab fa-github"></i>
-            <h3>GitHub</h3>
-            <p>
-                <a href="https://github.com/USERNAME" target="_blank">
-                    github.com/USERNAME
-                </a>
-            </p>
-        </div>
-
-        <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
-            <i class="fab fa-instagram"></i>
-            <h3>Instagram</h3>
-            <p>
-                <a href="https://instagram.com/_nafil_" target="_blank">
-                    @_nafil_
-                </a>
-            </p>
-        </div>
-
-        <div class="contact-card" data-aos="zoom-in" data-aos-delay="250">
-            <i class="fas fa-file-pdf"></i>
-            <h3>Curriculum Vitae</h3>
-
-            <div class="cv-buttons">
-                <a href="cv.pdf" target="_blank" class="cv-btn view-cv-btn">
-                    <i class="fas fa-eye"></i>
-                    View CV
-                </a>
-
-                <a href="cv.pdf" download="CV_Nafil_Fadillah.pdf" class="cv-btn download-cv-btn">
-                    <i class="fas fa-download"></i>
-                    Download CV
-                </a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <div class="visitor-counter">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=nafil.my.id">
-</div>
-
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 Nafil Fadillah. All Rights Reserved.</p>
-</footer>
-
-<!-- AOS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<!-- JS -->
-<script src="script.js"></script>
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

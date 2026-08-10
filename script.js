@@ -1,4 +1,96 @@
 /* =========================================================
+   SCROLL PROGRESS BAR + BACK TO TOP
+========================================================= */
+(function initScrollUtils() {
+    const progress = document.getElementById('scrollProgress');
+    const backToTop = document.getElementById('backToTop');
+
+    function onScroll() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+
+        if (progress) progress.style.width = pct + '%';
+        if (backToTop) backToTop.classList.toggle('is-visible', scrollTop > 500);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    backToTop?.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: prefersReducedMotionSafe() ? 'auto' : 'smooth' });
+    });
+
+    function prefersReducedMotionSafe() {
+        return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+})();
+
+/* =========================================================
+   GITHUB LIVE STATS
+   Fetch data publik dari GitHub REST API (nggak butuh auth/token).
+========================================================= */
+(function initGitHubStats() {
+    const repoEl = document.getElementById('ghRepos');
+    const followersEl = document.getElementById('ghFollowers');
+    const followingEl = document.getElementById('ghFollowing');
+    if (!repoEl) return;
+
+    fetch('https://api.github.com/users/nafilfadillah')
+        .then(res => { if (!res.ok) throw new Error('GitHub API error'); return res.json(); })
+        .then(data => {
+            repoEl.textContent = data.public_repos ?? '—';
+            followersEl.textContent = data.followers ?? '—';
+            followingEl.textContent = data.following ?? '—';
+        })
+        .catch(() => {
+            [repoEl, followersEl, followingEl].forEach(el => { if (el) el.textContent = 'N/A'; });
+        });
+})();
+
+/* =========================================================
+   VCARD DOWNLOAD ("Save Contact")
+========================================================= */
+document.getElementById('saveContactBtn')?.addEventListener('click', () => {
+    const vcard = [
+        'BEGIN:VCARD',
+        'VERSION:3.0',
+        'N:Fadillah;Nafil;;;',
+        'FN:Nafil Fadillah',
+        'TITLE:Network Engineer & Web Developer',
+        'EMAIL;TYPE=INTERNET:nafilfadillah09@gmail.com',
+        'TEL;TYPE=CELL:+6281573903440',
+        'URL:https://github.com/nafilfadillah',
+        'END:VCARD'
+    ].join('\r\n');
+
+    const blob = new Blob([vcard], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Nafil_Fadillah.vcf';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+});
+
+/* =========================================================
+   CONTACT FORM — builds a prefilled mailto: (no backend needed)
+========================================================= */
+document.getElementById('contactForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    const subject = encodeURIComponent(`Halo dari ${name} — via portofolio`);
+    const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
+    window.location.href = `mailto:nafilfadillah09@gmail.com?subject=${subject}&body=${body}`;
+});
+
+/* =========================================================
    NAVBAR — scrolled state, mobile menu, scrollspy
 ========================================================= */
 (function initNavbar() {
@@ -261,7 +353,6 @@ if (typingEl) {
 
 /* =========================================================
    STATS — auto-computed from actual page content
-   (no hardcoded numbers to keep out of sync with reality)
 ========================================================= */
 function computeStats() {
     const projectCount = document.querySelectorAll('#projects .project-card').length;
@@ -269,7 +360,7 @@ function computeStats() {
     const techNames = new Set();
     document.querySelectorAll('.logo-item span').forEach(el => techNames.add(el.textContent.trim()));
 
-    const startYear = 2020; // SMK TKJ start — adjust if you want "years coding" instead
+    const startYear = 2020;
     const years = new Date().getFullYear() - startYear;
 
     animateCount('statProjects', projectCount);

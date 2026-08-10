@@ -18,6 +18,33 @@
     <meta name="twitter:image" content="https://nafil.my.id/og-cover.jpg">
     <link rel="canonical" href="https://nafil.my.id">
 
+    <!-- Favicon & PWA basics -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0A0C11">
+
+    <!-- Structured data — bantu Google nampilin rich result (Person) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nafil Fadillah",
+        "url": "https://nafil.my.id",
+        "jobTitle": "Network Engineer & Web Developer",
+        "email": "mailto:nafilfadillah09@gmail.com",
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "Universitas Gunadarma" },
+            { "@type": "EducationalOrganization", "name": "SMK Informatika Pesat" }
+        ],
+        "knowsAbout": ["Networking", "Cisco", "MikroTik", "Linux Server Administration", "Web Development", "IoT", "Embedded Systems"],
+        "sameAs": [
+            "https://github.com/nafilfadillah",
+            "https://instagram.com/_nafil_"
+        ]
+    }
+    </script>
+
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +55,9 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
@@ -62,7 +92,7 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="hero-content" data-aos="fade-up">
 
             <div class="hero-badge">
@@ -219,6 +249,29 @@
             <div class="logo-item" aria-hidden="true"><i class="fas fa-server"></i><span>REST API</span></div>
         </div>
     </div>
+
+    <!-- GitHub Live Activity -->
+    <section id="github-activity">
+        <span class="eyebrow">curl api.github.com/users/nafilfadillah</span>
+        <h2 class="section-title" data-aos="fade-up">GitHub Activity</h2>
+        <div class="gh-stats-grid" id="ghStats">
+            <div class="stat-card">
+                <h3 id="ghRepos">—</h3>
+                <p>public repos</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="ghFollowers">—</h3>
+                <p>followers</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="ghFollowing">—</h3>
+                <p>following</p>
+            </div>
+        </div>
+        <div class="gh-cta">
+            <a href="https://github.com/nafilfadillah" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Lihat Profil GitHub</a>
+        </div>
+    </section>
 
     <!-- Education -->
     <section id="education">
@@ -546,6 +599,16 @@
         <span class="eyebrow">contact --send</span>
         <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
 
+        <!-- Quick message form — dibungkus jadi mailto: prefilled, jalan tanpa backend -->
+        <form class="contact-form" id="contactForm" data-aos="fade-up">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Nama kamu" required>
+                <input type="email" name="email" placeholder="Email kamu" required>
+            </div>
+            <textarea name="message" rows="4" placeholder="Pesan singkat..." required></textarea>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+        </form>
+
         <div class="contact-container">
             <div class="contact-card" data-aos="zoom-in">
                 <i class="fas fa-envelope"></i>
@@ -578,6 +641,15 @@
             </div>
 
             <div class="contact-card" data-aos="zoom-in" data-aos-delay="250">
+                <i class="fas fa-address-card"></i>
+                <h3>Save Contact</h3>
+                <p>Simpan kontak lo langsung ke HP orang yang lihat portofolio ini.</p>
+                <div class="cv-buttons">
+                    <button class="cv-btn" id="saveContactBtn" type="button"><i class="fas fa-download"></i> Download vCard</button>
+                </div>
+            </div>
+
+            <div class="contact-card" data-aos="zoom-in" data-aos-delay="300">
                 <i class="fas fa-file-pdf"></i>
                 <h3>Curriculum Vitae</h3>
                 <div class="cv-buttons">
@@ -587,6 +659,8 @@
             </div>
         </div>
     </section>
+
+    <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
         <p>© 2026 Nafil Fadillah. All rights reserved.</p>

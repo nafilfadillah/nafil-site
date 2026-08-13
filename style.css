@@ -295,6 +295,40 @@ h1,h2,h3{ font-family: var(--font-display); letter-spacing: -0.02em; }
 }
 #langToggle:hover{ border-color: var(--signal); color: var(--signal); }
 
+/* ==========================================================================
+   TOAST NOTIFICATIONS
+   ========================================================================== */
+.toast-container{
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    pointer-events: none;
+}
+
+.toast{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel);
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    padding: 12px 20px;
+    border-radius: 999px;
+    font-size: .85rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity .3s ease, transform .3s ease;
+}
+.toast.is-visible{ opacity: 1; transform: translateY(0); }
+.toast i{ color: var(--uptime); }
+
 .navbar{
     position: fixed;
     top: 16px;

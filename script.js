@@ -1,4 +1,35 @@
 /* =========================================================
+   LANGUAGE TOGGLE (ID / EN)
+========================================================= */
+(function initLangToggle() {
+    const langToggle = document.getElementById('langToggle');
+    if (!langToggle) return;
+
+    const saved = localStorage.getItem('lang') || 'id';
+    applyLang(saved);
+
+    langToggle.addEventListener('click', () => {
+        const current = document.documentElement.lang === 'en' ? 'en' : 'id';
+        const next = current === 'id' ? 'en' : 'id';
+        applyLang(next);
+        localStorage.setItem('lang', next);
+    });
+
+    function applyLang(lang) {
+        document.documentElement.lang = lang;
+        langToggle.textContent = lang.toUpperCase();
+
+        document.querySelectorAll('[data-i18n-id][data-i18n-en]').forEach(el => {
+            el.textContent = lang === 'en' ? el.dataset.i18nEn : el.dataset.i18nId;
+        });
+
+        document.querySelectorAll('[data-i18n-placeholder-id][data-i18n-placeholder-en]').forEach(el => {
+            el.setAttribute('placeholder', lang === 'en' ? el.dataset.i18nPlaceholderEn : el.dataset.i18nPlaceholderId);
+        });
+    }
+})();
+
+/* =========================================================
    SCROLL PROGRESS BAR + BACK TO TOP
 ========================================================= */
 (function initScrollUtils() {
@@ -45,6 +76,9 @@
         })
         .catch(() => {
             [repoEl, followersEl, followingEl].forEach(el => { if (el) el.textContent = 'N/A'; });
+        })
+        .finally(() => {
+            [repoEl, followersEl, followingEl].forEach(el => el?.classList.remove('is-loading'));
         });
 })();
 
@@ -142,6 +176,7 @@ document.getElementById('contactForm')?.addEventListener('submit', (e) => {
 const PROJECTS = {
     'air-quality': {
         icon: 'fa-wind',
+        caseStudy: 'case-study-air-quality.html',
         problem: 'Kabin/ruangan tertutup nggak punya cara otomatis buat deteksi udara kotor (CO/VOC, PM2.5) dan langsung merespons tanpa campur tangan manual.',
         arch: 'ESP32 baca sensor MQ135 (CO/VOC), GP2Y1010AU0F (PM2.5), DHT22 (suhu/kelembapan), dan PIR (kehadiran orang). Logic hysteresis berbasis flag (F1/F2/F3) menentukan kapan fan, ionizer, dan servo ventilasi aktif. Status ditampilkan di OLED SH1106.',
         tools: ['ESP32', 'MQ135', 'GP2Y1010AU0F', 'DHT22', 'PIR', 'SH1106 OLED', 'Relay'],
@@ -221,6 +256,16 @@ function openProjectModal(key) {
 
     const toolsEl = document.getElementById('modalTools');
     toolsEl.innerHTML = data.tools.map(t => `<span class="tag">${t}</span>`).join('');
+
+    const caseStudyBtn = document.getElementById('modalCaseStudy');
+    if (caseStudyBtn) {
+        if (data.caseStudy) {
+            caseStudyBtn.href = data.caseStudy;
+            caseStudyBtn.style.display = '';
+        } else {
+            caseStudyBtn.style.display = 'none';
+        }
+    }
 
     modalOverlay.classList.add('is-open');
     modalOverlay.setAttribute('aria-hidden', 'false');
@@ -423,11 +468,11 @@ if (!isTouch && !prefersReducedMotion) {
    CUSTOM CURSOR (desktop / mouse only)
 ========================================================= */
 if (!isTouch) {
-    document.body.classList.add('has-custom-cursor');
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-outline');
 
     if (dot && outline) {
+        document.body.classList.add('has-custom-cursor');
         document.addEventListener('mousemove', e => {
             dot.style.left = e.clientX + 'px';
             dot.style.top = e.clientY + 'px';

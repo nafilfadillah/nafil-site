@@ -187,6 +187,114 @@ h1,h2,h3{ font-family: var(--font-display); letter-spacing: -0.02em; }
 
 .contact-form button{ align-self: flex-start; border: none; cursor: pointer; }
 
+/* ==========================================================================
+   TIMELINE (Education / Experience)
+   ========================================================================== */
+.timeline{ position: relative; padding-left: 36px; }
+.timeline::before{
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: var(--line);
+}
+.timeline-item{ position: relative; padding-bottom: 32px; }
+.timeline-item:last-child{ padding-bottom: 0; }
+
+.timeline-dot{
+    position: absolute;
+    left: -31px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--signal);
+    box-shadow: 0 0 0 4px var(--ink);
+}
+
+.timeline-content{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    transition: border-color .3s ease, transform .3s ease;
+}
+.timeline-content:hover{ border-color: var(--signal); transform: translateX(4px); }
+
+.timeline-date{ display: inline-block; font-family: var(--font-mono); font-size: .74rem; color: var(--signal); margin-bottom: 8px; }
+.timeline-content h3{ font-size: 1.05rem; margin-bottom: 6px; }
+.timeline-content p{ color: var(--muted); font-size: .88rem; margin-bottom: 12px; }
+.timeline-content .tags{ margin-top: 4px; }
+
+/* ==========================================================================
+   CURRENTLY LEARNING WIDGET
+   ========================================================================== */
+.learning-widget{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 640px;
+    margin: 0 auto 40px;
+    padding: 14px 20px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius);
+    background: var(--panel);
+}
+.learning-widget i{ color: var(--signal); font-size: 1rem; }
+.learning-label{ font-family: var(--font-mono); font-size: .76rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; }
+
+/* ==========================================================================
+   GITHUB CONTRIBUTION GRAPH
+   ========================================================================== */
+.gh-chart-wrap{
+    max-width: 100%;
+    overflow-x: auto;
+    margin: 0 auto 30px;
+    padding: 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-align: center;
+}
+.gh-chart-wrap img{ max-width: 100%; height: auto; }
+
+/* ==========================================================================
+   LOADING SKELETON (GitHub stats)
+   ========================================================================== */
+.gh-stats-grid .stat-card h3.is-loading{
+    color: transparent;
+    display: inline-block;
+    min-width: 34px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--panel-2) 25%, var(--line-strong) 50%, var(--panel-2) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer{ 0%{ background-position: 200% 0; } 100%{ background-position: -200% 0; } }
+
+/* ==========================================================================
+   LANGUAGE TOGGLE
+   ========================================================================== */
+#langToggle{
+    background: var(--panel-2);
+    border: 1px solid var(--line);
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: .76rem;
+    font-weight: 700;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color .25s ease, color .25s ease;
+}
+#langToggle:hover{ border-color: var(--signal); color: var(--signal); }
+
 .navbar{
     position: fixed;
     top: 16px;

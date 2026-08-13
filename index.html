@@ -18,6 +18,9 @@
     <meta name="twitter:image" content="https://nafil.my.id/og-cover.jpg">
     <link rel="canonical" href="https://nafil.my.id">
 
+    <!-- Preload LCP image for faster first paint -->
+    <link rel="preload" as="image" href="nafil.jpg" fetchpriority="high">
+
     <!-- Favicon & PWA basics -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
@@ -45,7 +48,7 @@
     }
     </script>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=3">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,6 +92,7 @@
             <a href="#contact">Contact</a>
         </div>
         <button id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+        <button id="langToggle" aria-label="Ganti Bahasa / Switch Language">ID</button>
     </nav>
 
     <!-- HERO -->
@@ -97,17 +101,17 @@
 
             <div class="hero-badge">
                 <i class="fas fa-circle"></i>
-                available for internship &amp; freelance
+                <span data-i18n-id="tersedia untuk magang &amp; freelance" data-i18n-en="available for internship &amp; freelance">tersedia untuk magang &amp; freelance</span>
             </div>
 
             <img src="nafil.jpg" alt="Nafil Fadillah" class="profile">
 
-            <h1>Hi, I'm <span>Nafil Fadillah</span></h1>
+            <h1><span data-i18n-id="Hi, saya" data-i18n-en="Hi, I'm">Hi, saya</span> <span>Nafil Fadillah</span></h1>
 
             <p id="typing"></p>
-            <p class="hero-subtitle">mahasiswa Sistem Komputer — Networking · Linux · IoT</p>
+            <p class="hero-subtitle" data-i18n-id="mahasiswa Sistem Komputer — Networking · Linux · IoT" data-i18n-en="Computer Systems student — Networking · Linux · IoT">mahasiswa Sistem Komputer — Networking · Linux · IoT</p>
 
-            <p class="hero-desc">
+            <p class="hero-desc" data-i18n-id="Mahasiswa Sistem Komputer yang fokus pada Networking, Linux Server Administration, Web Development, dan Internet of Things (IoT)." data-i18n-en="A Computer Systems student focused on Networking, Linux Server Administration, Web Development, and the Internet of Things (IoT).">
                 Mahasiswa Sistem Komputer yang fokus pada Networking,
                 Linux Server Administration, Web Development,
                 dan Internet of Things (IoT).
@@ -116,12 +120,12 @@
             <div class="now-widget">
                 <span class="now-dot"></span>
                 <span class="now-label">now</span>
-                <span class="now-text">menyelesaikan skripsi — ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System</span>
+                <span class="now-text" data-i18n-id="menyelesaikan skripsi — ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System" data-i18n-en="finishing undergraduate thesis — ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System">menyelesaikan skripsi — ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System</span>
             </div>
 
             <div class="btns">
-                <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
-                <a href="cv.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> View CV</a>
+                <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> <span data-i18n-id="Lihat Projects" data-i18n-en="View Projects">Lihat Projects</span></a>
+                <a href="cv.pdf" target="_blank" class="btn btn-outline"><i class="fas fa-file-pdf"></i> <span data-i18n-id="Lihat CV" data-i18n-en="View CV">Lihat CV</span></a>
                 <a href="resume.html" class="btn btn-outline"><i class="fas fa-id-card"></i> Web Resume</a>
             </div>
 
@@ -136,16 +140,16 @@
 
     <!-- About & Stats -->
     <section id="about">
-        <span class="eyebrow">cat about.md</span>
-        <h2 class="section-title">Tentang Saya</h2>
+        <span class="eyebrow" data-i18n-id="cat about.md" data-i18n-en="cat about.md">cat about.md</span>
+        <h2 class="section-title" data-i18n-id="Tentang Saya" data-i18n-en="About Me">Tentang Saya</h2>
         <div class="about-container">
             <div data-aos="fade-right">
-                <p>
+                <p data-i18n-id="Saya adalah mahasiswa yang passionate di bidang teknologi jaringan komputer dan pengembangan web. Fokus utama saya adalah membangun infrastruktur jaringan yang stabil dan modern menggunakan peralatan MikroTik dan Cisco." data-i18n-en="I'm a student passionate about computer networking technology and web development. My main focus is building stable, modern network infrastructure using MikroTik and Cisco equipment.">
                     Saya adalah mahasiswa yang passionate di bidang teknologi jaringan komputer dan pengembangan web.
                     Fokus utama saya adalah membangun infrastruktur jaringan yang stabil dan modern menggunakan
                     peralatan MikroTik dan Cisco.
                 </p>
-                <p>
+                <p data-i18n-id="Saya senang mempelajari teknologi baru, terutama yang berkaitan dengan keamanan siber, otomatisasi jaringan, dan desain antarmuka pengguna yang modern." data-i18n-en="I enjoy learning new technologies, especially those related to cybersecurity, network automation, and modern user interface design.">
                     Saya senang mempelajari teknologi baru, terutama yang berkaitan dengan keamanan siber, otomatisasi
                     jaringan, dan desain antarmuka pengguna yang modern.
                 </p>
@@ -172,34 +176,34 @@
     <!-- Focus -->
     <section id="focus">
         <span class="eyebrow">ls ~/focus</span>
-        <h2 class="section-title" data-aos="fade-up">Current Focus</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Fokus Saat Ini" data-i18n-en="Current Focus">Current Focus</h2>
         <div class="projects-grid">
             <div class="project-card" data-aos="zoom-in">
                 <div class="project-visual"><i class="fas fa-network-wired"></i></div>
                 <div class="project-info">
                     <h3>Networking</h3>
-                    <p>Advanced routing, switching, VLAN, bandwidth management, Cisco &amp; MikroTik infrastructure.</p>
+                    <p data-i18n-id="Advanced routing, switching, VLAN, bandwidth management, infrastruktur Cisco &amp; MikroTik." data-i18n-en="Advanced routing, switching, VLAN, bandwidth management, Cisco &amp; MikroTik infrastructure.">Advanced routing, switching, VLAN, bandwidth management, Cisco &amp; MikroTik infrastructure.</p>
                 </div>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
                 <div class="project-visual"><i class="fab fa-linux"></i></div>
                 <div class="project-info">
                     <h3>Linux Server</h3>
-                    <p>Ubuntu Server administration, Mail/DNS server configuration, Docker, Nginx, dan VPS security.</p>
+                    <p data-i18n-id="Administrasi Ubuntu Server, konfigurasi Mail/DNS server, Docker, Nginx, dan keamanan VPS." data-i18n-en="Ubuntu Server administration, Mail/DNS server configuration, Docker, Nginx, and VPS security.">Ubuntu Server administration, Mail/DNS server configuration, Docker, Nginx, dan VPS security.</p>
                 </div>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
                 <div class="project-visual"><i class="fas fa-code"></i></div>
                 <div class="project-info">
-                    <h3>Web Development</h3>
-                    <p>Membangun web management tools yang responsif &amp; dinamis dengan HTML5, CSS3, PHP, dan MySQL.</p>
+                    <h3 data-i18n-id="Pengembangan Web" data-i18n-en="Web Development">Web Development</h3>
+                    <p data-i18n-id="Membangun web management tools yang responsif &amp; dinamis dengan HTML5, CSS3, PHP, dan MySQL." data-i18n-en="Building responsive &amp; dynamic web management tools with HTML5, CSS3, PHP, and MySQL.">Membangun web management tools yang responsif &amp; dinamis dengan HTML5, CSS3, PHP, dan MySQL.</p>
                 </div>
             </div>
             <div class="project-card" data-aos="zoom-in" data-aos-delay="300">
                 <div class="project-visual"><i class="fas fa-microchip"></i></div>
                 <div class="project-info">
-                    <h3>Embedded &amp; Digital System</h3>
-                    <p>Hardware logic simulation dengan VHDL, digital circuit analysis, ESP32, dan hardware monitoring.</p>
+                    <h3 data-i18n-id="Embedded &amp; Sistem Digital" data-i18n-en="Embedded &amp; Digital System">Embedded &amp; Digital System</h3>
+                    <p data-i18n-id="Simulasi logika hardware dengan VHDL, analisis rangkaian digital, ESP32, dan monitoring hardware." data-i18n-en="Hardware logic simulation with VHDL, digital circuit analysis, ESP32, and hardware monitoring.">Hardware logic simulation dengan VHDL, digital circuit analysis, ESP32, dan hardware monitoring.</p>
                 </div>
             </div>
         </div>
@@ -253,20 +257,24 @@
     <!-- GitHub Live Activity -->
     <section id="github-activity">
         <span class="eyebrow">curl api.github.com/users/nafilfadillah</span>
-        <h2 class="section-title" data-aos="fade-up">GitHub Activity</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Aktivitas GitHub" data-i18n-en="GitHub Activity">GitHub Activity</h2>
         <div class="gh-stats-grid" id="ghStats">
             <div class="stat-card">
-                <h3 id="ghRepos">—</h3>
+                <h3 id="ghRepos" class="is-loading">—</h3>
                 <p>public repos</p>
             </div>
             <div class="stat-card">
-                <h3 id="ghFollowers">—</h3>
+                <h3 id="ghFollowers" class="is-loading">—</h3>
                 <p>followers</p>
             </div>
             <div class="stat-card">
-                <h3 id="ghFollowing">—</h3>
+                <h3 id="ghFollowing" class="is-loading">—</h3>
                 <p>following</p>
             </div>
+        </div>
+        <!-- Contribution graph via ghchart.rshah.org (data publik GitHub, nggak butuh token) -->
+        <div class="gh-chart-wrap" data-aos="fade-up">
+            <img src="https://ghchart.rshah.org/D9A857/nafilfadillah" alt="Grafik kontribusi GitHub Nafil Fadillah" loading="lazy" decoding="async">
         </div>
         <div class="gh-cta">
             <a href="https://github.com/nafilfadillah" target="_blank" class="btn btn-outline"><i class="fab fa-github"></i> Lihat Profil GitHub</a>
@@ -276,20 +284,22 @@
     <!-- Education -->
     <section id="education">
         <span class="eyebrow">cat education.log</span>
-        <h2 class="section-title">Education</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-info">
+        <h2 class="section-title" data-i18n-id="Pendidikan" data-i18n-en="Education">Education</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2023 — Sekarang</span>
                     <h3>Universitas Gunadarma</h3>
                     <p>S1 Sistem Komputer</p>
-                    <span>2023 — Sekarang</span>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-info">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2020 — 2023</span>
                     <h3>SMK Informatika Pesat</h3>
                     <p>Teknik Komputer Jaringan</p>
-                    <span>2020 — 2023</span>
                 </div>
             </div>
         </div>
@@ -298,10 +308,11 @@
     <!-- Experience -->
     <section id="experience">
         <span class="eyebrow">cat experience.log</span>
-        <h2 class="section-title">Experience</h2>
-        <div class="projects-grid">
-            <div class="project-card" data-aos="zoom-in">
-                <div class="project-info">
+        <h2 class="section-title" data-i18n-id="Pengalaman" data-i18n-en="Experience">Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <h3>Laboratory Assistant</h3>
                     <p>
                         Membimbing praktikan dalam memahami konsep jaringan dan administrasi server.
@@ -316,8 +327,9 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="100">
-                <div class="project-info">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <h3>IT Support</h3>
                     <p>
                         Konfigurasi VLAN, routing, switching, DHCP, dan subnetting menggunakan
@@ -331,8 +343,9 @@
                     </div>
                 </div>
             </div>
-            <div class="project-card" data-aos="zoom-in" data-aos-delay="200">
-                <div class="project-info">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
                     <h3>Web Development</h3>
                     <p>
                         Membuat website dan sistem informasi manajemen yang responsif
@@ -351,7 +364,19 @@
     <!-- Skills -->
     <section id="skills">
         <span class="eyebrow">skills --list</span>
-        <h2 class="section-title" data-aos="fade-up">Skills</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Keahlian" data-i18n-en="Skills">Skills</h2>
+
+        <!-- TODO: update sesuai teknologi yang beneran lagi lo pelajari sekarang -->
+        <div class="learning-widget" data-aos="fade-up">
+            <i class="fas fa-graduation-cap"></i>
+            <span class="learning-label" data-i18n-id="sedang dipelajari" data-i18n-en="currently learning">sedang dipelajari</span>
+            <div class="tags">
+                <span class="tag">Cloud Networking</span>
+                <span class="tag">Kubernetes</span>
+                <span class="tag">Advanced BGP/OSPF</span>
+            </div>
+        </div>
+
         <div class="skills-grid">
             <div class="skill-card" data-aos="fade-up"><i class="fab fa-linux" style="color:#FCC624"></i><p>Linux Ubuntu</p></div>
             <div class="skill-card" data-aos="fade-up" data-aos-delay="50"><i class="fas fa-server" style="color:#34D399"></i><p>Server Configuration</p></div>
@@ -373,7 +398,7 @@
     <!-- Certificates -->
     <section id="certificates">
         <span class="eyebrow">ls certificates/</span>
-        <h2 class="section-title">Certificates</h2>
+        <h2 class="section-title" data-i18n-id="Sertifikat" data-i18n-en="Certificates">Certificates</h2>
         <div class="projects-grid">
             <div class="project-card" data-aos="zoom-in">
                 <div class="project-info">
@@ -413,7 +438,7 @@
     <!-- Projects -->
     <section id="projects">
         <span class="eyebrow">ls ~/projects</span>
-        <h2 class="section-title" data-aos="fade-up">Projects</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Proyek" data-i18n-en="Projects">Projects</h2>
 
         <div class="filter-tabs" role="tablist" aria-label="Filter project by category">
             <button class="filter-btn is-active" data-filter="all">All</button>
@@ -559,13 +584,14 @@
                 </div>
             </div>
             <a class="btn btn-primary" id="modalRepo" href="#" target="_blank"><i class="fab fa-github"></i> View Code</a>
+            <a class="btn btn-outline" id="modalCaseStudy" href="#" style="display:none; margin-top:10px;"><i class="fas fa-book-open"></i> Full Case Study</a>
         </div>
     </div>
 
     <!-- Testimonials -->
     <section id="testimonials">
         <span class="eyebrow">cat testimonials.log</span>
-        <h2 class="section-title" data-aos="fade-up">Apa Kata Mereka</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Apa Kata Mereka" data-i18n-en="What They Say">Apa Kata Mereka</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card" data-aos="fade-up">
                 <i class="fas fa-quote-left"></i>
@@ -597,16 +623,16 @@
     <!-- CONTACT -->
     <section id="contact">
         <span class="eyebrow">contact --send</span>
-        <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+        <h2 class="section-title" data-aos="fade-up" data-i18n-id="Hubungi Saya" data-i18n-en="Contact Me">Contact Me</h2>
 
         <!-- Quick message form — dibungkus jadi mailto: prefilled, jalan tanpa backend -->
         <form class="contact-form" id="contactForm" data-aos="fade-up">
             <div class="form-row">
-                <input type="text" name="name" placeholder="Nama kamu" required>
-                <input type="email" name="email" placeholder="Email kamu" required>
+                <input type="text" name="name" placeholder="Nama kamu" data-i18n-placeholder-id="Nama kamu" data-i18n-placeholder-en="Your name" required>
+                <input type="email" name="email" placeholder="Email kamu" data-i18n-placeholder-id="Email kamu" data-i18n-placeholder-en="Your email" required>
             </div>
-            <textarea name="message" rows="4" placeholder="Pesan singkat..." required></textarea>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim Pesan</button>
+            <textarea name="message" rows="4" placeholder="Pesan singkat..." data-i18n-placeholder-id="Pesan singkat..." data-i18n-placeholder-en="Short message..." required></textarea>
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> <span data-i18n-id="Kirim Pesan" data-i18n-en="Send Message">Kirim Pesan</span></button>
         </form>
 
         <div class="contact-container">
@@ -663,10 +689,10 @@
     <button id="backToTop" class="back-to-top" aria-label="Kembali ke atas"><i class="fas fa-arrow-up"></i></button>
 
     <footer>
-        <p>© 2026 Nafil Fadillah. All rights reserved.</p>
+        <p>© 2026 Nafil Fadillah. All rights reserved. &middot; <a href="privacy.html" style="color:var(--muted-2);">Privacy Policy</a></p>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 </html>

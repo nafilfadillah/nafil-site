@@ -83,6 +83,26 @@
 })();
 
 /* =========================================================
+   TOAST NOTIFICATIONS
+========================================================= */
+function showToast(message, icon = 'fa-circle-check') {
+    const container = document.getElementById('toastContainer');
+    if (!container) return;
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => toast.classList.add('is-visible'));
+
+    setTimeout(() => {
+        toast.classList.remove('is-visible');
+        setTimeout(() => toast.remove(), 300);
+    }, 3200);
+}
+
+/* =========================================================
    VCARD DOWNLOAD ("Save Contact")
 ========================================================= */
 document.getElementById('saveContactBtn')?.addEventListener('click', () => {
@@ -107,6 +127,8 @@ document.getElementById('saveContactBtn')?.addEventListener('click', () => {
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
+
+    showToast('vCard berhasil diunduh', 'fa-download');
 });
 
 /* =========================================================
@@ -122,6 +144,8 @@ document.getElementById('contactForm')?.addEventListener('submit', (e) => {
     const subject = encodeURIComponent(`Halo dari ${name} — via portofolio`);
     const body = encodeURIComponent(`${message}\n\n— ${name} (${email})`);
     window.location.href = `mailto:nafilfadillah09@gmail.com?subject=${subject}&body=${body}`;
+
+    showToast('Membuka aplikasi email...', 'fa-paper-plane');
 });
 
 /* =========================================================
@@ -177,59 +201,131 @@ const PROJECTS = {
     'air-quality': {
         icon: 'fa-wind',
         caseStudy: 'case-study-air-quality.html',
-        problem: 'Kabin/ruangan tertutup nggak punya cara otomatis buat deteksi udara kotor (CO/VOC, PM2.5) dan langsung merespons tanpa campur tangan manual.',
-        arch: 'ESP32 baca sensor MQ135 (CO/VOC), GP2Y1010AU0F (PM2.5), DHT22 (suhu/kelembapan), dan PIR (kehadiran orang). Logic hysteresis berbasis flag (F1/F2/F3) menentukan kapan fan, ionizer, dan servo ventilasi aktif. Status ditampilkan di OLED SH1106.',
+        problem: {
+            id: 'Kabin/ruangan tertutup nggak punya cara otomatis buat deteksi udara kotor (CO/VOC, PM2.5) dan langsung merespons tanpa campur tangan manual.',
+            en: 'Enclosed cabins/rooms have no automatic way to detect poor air quality (CO/VOC, PM2.5) and respond right away without manual intervention.'
+        },
+        arch: {
+            id: 'ESP32 baca sensor MQ135 (CO/VOC), GP2Y1010AU0F (PM2.5), DHT22 (suhu/kelembapan), dan PIR (kehadiran orang). Logic hysteresis berbasis flag (F1/F2/F3) menentukan kapan fan, ionizer, dan servo ventilasi aktif. Status ditampilkan di OLED SH1106.',
+            en: 'An ESP32 reads the MQ135 (CO/VOC), GP2Y1010AU0F (PM2.5), DHT22 (temperature/humidity), and PIR (occupancy) sensors. A flag-based hysteresis logic (F1/F2/F3) determines when the fan, ionizer, and ventilation servo activate. Status is shown on an SH1106 OLED.'
+        },
         tools: ['ESP32', 'MQ135', 'GP2Y1010AU0F', 'DHT22', 'PIR', 'SH1106 OLED', 'Relay'],
-        outcome: 'Sistem otomatis membersihkan &amp; memventilasi udara kabin berdasarkan kondisi real-time, jadi bagian dari skripsi Sistem Komputer.'
+        outcome: {
+            id: 'Sistem otomatis membersihkan &amp; memventilasi udara kabin berdasarkan kondisi real-time, jadi bagian dari skripsi Sistem Komputer.',
+            en: 'The system automatically cleans &amp; ventilates cabin air based on real-time conditions, developed as part of a Computer Systems undergraduate thesis.'
+        }
     },
     'hospital': {
         icon: 'fa-notes-medical',
-        problem: 'Pencatatan data pasien, dokter, dan rekam medis manual rawan hilang dan lambat direkap.',
-        arch: 'Aplikasi berbasis Python dengan database MySQL untuk menyimpan data pasien, dokter, obat, dan rekam medis, plus modul laporan.',
+        problem: {
+            id: 'Pencatatan data pasien, dokter, dan rekam medis manual rawan hilang dan lambat direkap.',
+            en: 'Manual recording of patient, doctor, and medical record data is prone to loss and slow to compile.'
+        },
+        arch: {
+            id: 'Aplikasi berbasis Python dengan database MySQL untuk menyimpan data pasien, dokter, obat, dan rekam medis, plus modul laporan.',
+            en: 'A Python-based application with a MySQL database to store patient, doctor, medication, and medical record data, plus a reporting module.'
+        },
         tools: ['Python', 'MySQL', 'Database Design'],
-        outcome: 'Sistem terpusat untuk mengelola data rumah sakit dan menghasilkan laporan otomatis.'
+        outcome: {
+            id: 'Sistem terpusat untuk mengelola data rumah sakit dan menghasilkan laporan otomatis.',
+            en: 'A centralized system to manage hospital data and generate automatic reports.'
+        }
     },
     'mail-server': {
         icon: 'fa-envelope-open-text',
-        problem: 'Butuh mail server sendiri yang aman dan nggak gampang ditandai spam oleh penyedia email lain.',
-        arch: 'Postfix sebagai MTA dan Dovecot sebagai IMAP/POP3 server di atas Ubuntu Server, dikonfigurasi dengan SPF, DKIM, dan DMARC untuk validasi pengirim.',
+        problem: {
+            id: 'Butuh mail server sendiri yang aman dan nggak gampang ditandai spam oleh penyedia email lain.',
+            en: 'Needed a self-hosted, secure mail server that isn\'t easily flagged as spam by other email providers.'
+        },
+        arch: {
+            id: 'Postfix sebagai MTA dan Dovecot sebagai IMAP/POP3 server di atas Ubuntu Server, dikonfigurasi dengan SPF, DKIM, dan DMARC untuk validasi pengirim.',
+            en: 'Postfix as the MTA and Dovecot as the IMAP/POP3 server on Ubuntu Server, configured with SPF, DKIM, and DMARC for sender validation.'
+        },
         tools: ['Ubuntu Server', 'Postfix', 'Dovecot', 'SPF/DKIM/DMARC'],
-        outcome: 'Mail server mandiri dengan deliverability yang lebih terjaga karena email terverifikasi dengan benar.'
+        outcome: {
+            id: 'Mail server mandiri dengan deliverability yang lebih terjaga karena email terverifikasi dengan benar.',
+            en: 'A self-hosted mail server with better deliverability, since outgoing email is properly verified.'
+        }
     },
     'dns-server': {
         icon: 'fa-sitemap',
-        problem: 'Jaringan lokal butuh resolusi nama domain sendiri tanpa bergantung ke DNS publik.',
-        arch: 'BIND9 dikonfigurasi dengan forward zone dan reverse zone untuk resolusi nama ke IP dan sebaliknya di jaringan lab.',
+        problem: {
+            id: 'Jaringan lokal butuh resolusi nama domain sendiri tanpa bergantung ke DNS publik.',
+            en: 'The local network needed its own domain name resolution without depending on public DNS.'
+        },
+        arch: {
+            id: 'BIND9 dikonfigurasi dengan forward zone dan reverse zone untuk resolusi nama ke IP dan sebaliknya di jaringan lab.',
+            en: 'BIND9 configured with forward and reverse zones to resolve names to IPs and vice versa on the lab network.'
+        },
         tools: ['Ubuntu Server', 'BIND9', 'DNS Zones'],
-        outcome: 'Resolusi nama domain internal berjalan mandiri dan konsisten di jaringan lokal.'
+        outcome: {
+            id: 'Resolusi nama domain internal berjalan mandiri dan konsisten di jaringan lokal.',
+            en: 'Internal domain name resolution runs independently and consistently on the local network.'
+        }
     },
     'vpn': {
         icon: 'fa-shield-halved',
-        problem: 'Anggota lab perlu akses aman ke jaringan laboratorium dari luar kampus tanpa membuka port yang berisiko.',
-        arch: 'WireGuard di-setup sebagai VPN server ringan dengan enkripsi modern, key-pair per client untuk kontrol akses.',
+        problem: {
+            id: 'Anggota lab perlu akses aman ke jaringan laboratorium dari luar kampus tanpa membuka port yang berisiko.',
+            en: 'Lab members needed secure access to the laboratory network from off-campus without exposing risky open ports.'
+        },
+        arch: {
+            id: 'WireGuard di-setup sebagai VPN server ringan dengan enkripsi modern, key-pair per client untuk kontrol akses.',
+            en: 'WireGuard set up as a lightweight VPN server with modern encryption, using a per-client key pair for access control.'
+        },
         tools: ['WireGuard', 'Linux', 'Networking Security'],
-        outcome: 'Akses remote yang aman dan cepat ke jaringan lab dari mana saja.'
+        outcome: {
+            id: 'Akses remote yang aman dan cepat ke jaringan lab dari mana saja.',
+            en: 'Secure, fast remote access to the lab network from anywhere.'
+        }
     },
     'monitoring': {
         icon: 'fa-chart-line',
-        problem: 'Nggak ada visibilitas real-time terhadap kondisi bandwidth, uptime, dan trafik server.',
-        arch: 'Dashboard yang menarik data bandwidth, uptime, dan trafik jaringan, ditampilkan dalam grafik yang di-update berkala.',
+        problem: {
+            id: 'Nggak ada visibilitas real-time terhadap kondisi bandwidth, uptime, dan trafik server.',
+            en: 'No real-time visibility into bandwidth, uptime, and server traffic conditions.'
+        },
+        arch: {
+            id: 'Dashboard yang menarik data bandwidth, uptime, dan trafik jaringan, ditampilkan dalam grafik yang di-update berkala.',
+            en: 'A dashboard that pulls bandwidth, uptime, and network traffic data, displayed in periodically updated charts.'
+        },
         tools: ['Linux', 'Monitoring Tools', 'Dashboard'],
-        outcome: 'Tim bisa memantau kesehatan jaringan secara real-time dan lebih cepat merespons anomali.'
+        outcome: {
+            id: 'Tim bisa memantau kesehatan jaringan secara real-time dan lebih cepat merespons anomali.',
+            en: 'The team can monitor network health in real time and respond to anomalies faster.'
+        }
     },
     'cyberlab': {
         icon: 'fa-user-secret',
-        problem: 'Perlu ruang aman buat belajar teknik penetration testing dasar tanpa menyentuh sistem produksi.',
-        arch: 'Lab tertutup menggunakan Kali Linux untuk simulasi serangan, Wireshark untuk analisis paket, Nmap untuk network scanning, dan Metasploit untuk exploit testing dasar.',
+        problem: {
+            id: 'Perlu ruang aman buat belajar teknik penetration testing dasar tanpa menyentuh sistem produksi.',
+            en: 'Needed a safe space to learn basic penetration testing techniques without touching production systems.'
+        },
+        arch: {
+            id: 'Lab tertutup menggunakan Kali Linux untuk simulasi serangan, Wireshark untuk analisis paket, Nmap untuk network scanning, dan Metasploit untuk exploit testing dasar.',
+            en: 'A closed lab using Kali Linux for attack simulation, Wireshark for packet analysis, Nmap for network scanning, and Metasploit for basic exploit testing.'
+        },
         tools: ['Kali Linux', 'Wireshark', 'Nmap', 'Metasploit'],
-        outcome: 'Pemahaman praktis soal alur penetration testing dan cara membaca trafik jaringan yang mencurigakan.'
+        outcome: {
+            id: 'Pemahaman praktis soal alur penetration testing dan cara membaca trafik jaringan yang mencurigakan.',
+            en: 'Practical understanding of the penetration testing workflow and how to read suspicious network traffic.'
+        }
     },
     'portfolio': {
         icon: 'fa-globe',
-        problem: 'Butuh satu tempat terpusat untuk menampilkan project, sertifikasi, dan cara dihubungi.',
-        arch: 'Website statis HTML/CSS/JS, di-host di GitHub Pages dengan Cloudflare sebagai DNS & CDN, custom domain.',
+        problem: {
+            id: 'Butuh satu tempat terpusat untuk menampilkan project, sertifikasi, dan cara dihubungi.',
+            en: 'Needed one centralized place to showcase projects, certifications, and contact info.'
+        },
+        arch: {
+            id: 'Website statis HTML/CSS/JS, di-host di GitHub Pages dengan Cloudflare sebagai DNS &amp; CDN, custom domain.',
+            en: 'A static HTML/CSS/JS website, hosted on GitHub Pages with Cloudflare as DNS &amp; CDN, on a custom domain.'
+        },
         tools: ['HTML', 'CSS', 'JavaScript', 'Cloudflare', 'GitHub Pages'],
-        outcome: 'Portofolio yang cepat diakses, gratis di-hosting, dan gampang di-update lewat Git.'
+        outcome: {
+            id: 'Portofolio yang cepat diakses, gratis di-hosting, dan gampang di-update lewat Git.',
+            en: 'A fast-loading portfolio, free to host, and easy to update via Git.'
+        }
     }
 };
 
@@ -238,10 +334,35 @@ const PROJECTS = {
 ========================================================= */
 const modalOverlay = document.getElementById('projectModal');
 const modalClose = document.getElementById('modalClose');
+let lastFocusedBeforeModal = null;
+
+function getFocusableInModal() {
+    if (!modalOverlay) return [];
+    return Array.from(modalOverlay.querySelectorAll('a[href], button:not([disabled])'))
+        .filter(el => el.offsetParent !== null || el === document.activeElement);
+}
+
+function trapFocus(e) {
+    if (e.key !== 'Tab' || !modalOverlay?.classList.contains('is-open')) return;
+    const focusable = getFocusableInModal();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+    }
+}
 
 function openProjectModal(key) {
     const data = PROJECTS[key];
     if (!data || !modalOverlay) return;
+
+    lastFocusedBeforeModal = document.activeElement;
 
     const card = document.querySelector(`.project-card[data-project="${key}"]`);
     const title = card?.querySelector('h3')?.textContent ?? key;
@@ -249,9 +370,10 @@ function openProjectModal(key) {
 
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalVisual').innerHTML = `<i class="fas ${data.icon}"></i>`;
-    document.getElementById('modalProblem').textContent = data.problem;
-    document.getElementById('modalArch').textContent = data.arch;
-    document.getElementById('modalOutcome').innerHTML = data.outcome;
+    const lang = document.documentElement.lang === 'en' ? 'en' : 'id';
+    document.getElementById('modalProblem').textContent = data.problem[lang];
+    document.getElementById('modalArch').textContent = data.arch[lang];
+    document.getElementById('modalOutcome').innerHTML = data.outcome[lang];
     document.getElementById('modalRepo').setAttribute('href', repoLink);
 
     const toolsEl = document.getElementById('modalTools');
@@ -270,12 +392,17 @@ function openProjectModal(key) {
     modalOverlay.classList.add('is-open');
     modalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    requestAnimationFrame(() => modalClose?.focus());
+    document.addEventListener('keydown', trapFocus);
 }
 
 function closeProjectModal() {
     modalOverlay?.classList.remove('is-open');
     modalOverlay?.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    document.removeEventListener('keydown', trapFocus);
+    lastFocusedBeforeModal?.focus();
 }
 
 document.querySelectorAll('.card-details').forEach(btn => {

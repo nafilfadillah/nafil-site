@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: IoT Air Quality Monitoring | Nafil Fadillah</title>
+    <meta name="description" content="Studi kasus mendalam: sistem monitoring &amp; purifikasi udara kabin otomatis berbasis ESP32 — skripsi Sistem Komputer Nafil Fadillah.">
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="logo" style="text-decoration:none;">nafil</a>
+        <div class="nav-links">
+            <a href="index.html">Portfolio</a>
+            <a href="index.html#projects">Projects</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+        <button id="themeToggle" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    </nav>
+
+    <section class="resume-page">
+
+        <div class="resume-header">
+            <div>
+                <span class="eyebrow" style="text-align:left;">case-study --project=air-quality</span>
+                <h1>IoT Air Quality Monitoring &amp; Purification</h1>
+                <p class="role">ESP32 Automatic Cabin Air Quality Monitoring &amp; Purification System — Skripsi Sistem Komputer</p>
+            </div>
+            <a href="index.html#projects" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Kembali</a>
+        </div>
+
+        <div class="resume-section">
+            <h2>Latar Belakang &amp; Masalah</h2>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8;">
+                Ruangan tertutup seperti kabin kendaraan atau ruang kerja kecil rawan terhadap penumpukan CO/VOC dan
+                partikel debu halus (PM2.5), terutama saat okupansi tinggi dan ventilasi minim. Kondisi ini biasanya baru
+                disadari setelah terasa pengap — nggak ada sistem yang otomatis mendeteksi dan merespons sebelum kualitas
+                udara benar-benar memburuk. Skripsi ini menjawab kebutuhan itu: sistem yang memantau kualitas udara secara
+                terus-menerus dan bertindak otomatis (ventilasi, filtrasi, ionisasi) tanpa menunggu intervensi manual.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Arsitektur Sistem</h2>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8; margin-bottom:18px;">
+                ESP32 jadi otak sistem, membaca 4 sensor secara paralel dan mengontrol 3 aktuator berdasarkan kombinasi
+                kondisi yang terbaca:
+            </p>
+            <div class="resume-skills" style="margin-bottom: 18px;">
+                <span class="tag">MQ135 → CO/VOC</span>
+                <span class="tag">GP2Y1010AU0F → PM2.5</span>
+                <span class="tag">DHT22 → Suhu/Kelembapan</span>
+                <span class="tag">PIR → Okupansi</span>
+            </div>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8;">
+                Sensor gas MQ135 dikalibrasi otomatis saat boot untuk menghitung nilai resistansi baseline (Ro) di udara
+                bersih, lalu konsentrasi CO/VOC dihitung pakai persamaan empiris berbasis fungsi pangkat. Sensor debu
+                GP2Y1010AU0F dibaca dengan teknik pulsing LED inframerah lalu dilinearisasi ke satuan µg/m³. PIR dipakai
+                dengan majority-filter debouncing dan hold 8 detik supaya nggak salah baca akibat gerakan sesaat.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Logika Kontrol</h2>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8; margin-bottom:14px;">
+                Kondisi udara direpresentasikan sebagai bitmask 3-bit (F1/F2/F3) yang bisa menangkap beberapa kondisi
+                sekaligus secara bersamaan — bukan satu status tunggal. Ini penting karena kondisi "CO tinggi + PM2.5
+                tinggi" butuh respons berbeda dari sekadar "CO tinggi saja".
+            </p>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Fan (ventilasi)</strong><span>GPIO26, active-low relay</span></div>
+                <p>Aktif saat CO/VOC atau PM2.5 melewati ambang batas, untuk menukar udara kabin dengan udara luar.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Ionizer</strong><span>GPIO25</span></div>
+                <p>Aktif bergantung kombinasi PM2.5 tinggi dan okupansi terdeteksi, membantu mengendapkan partikel halus.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Servo ventilasi</strong><span>PWM</span></div>
+                <p>Membuka/menutup jalur sirkulasi udara secara proporsional terhadap tingkat keparahan kondisi.</p>
+            </div>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8;">
+                Status ditampilkan real-time di OLED SH1106 (I2C, SDA=21, SCL=22), dengan mekanisme <em>status dwell</em>
+                supaya tampilan nggak flicker saat kondisi berubah cepat di ambang batas.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Tantangan &amp; Solusi Teknis</h2>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Ro calibration meleset → pembacaan ppm meledak</strong></div>
+                <p>Diselesaikan dengan runtime auto-calibration Ro saat boot di udara bersih, bukan nilai konstan hardcoded.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Polaritas relay fan terbalik</strong></div>
+                <p>Ditambahkan konstanta <code>RELAY_ACTIVE_LOW</code> supaya logika kontrol konsisten terlepas dari jenis modul relay.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Driver OLED salah</strong></div>
+                <p>Awalnya pakai driver SSD1306, ternyata modul yang dipakai perlu SH1106 — diganti dan disesuaikan ukuran buffer-nya.</p>
+            </div>
+            <div class="resume-item">
+                <div class="resume-item-head"><strong>Status flicker di OLED</strong></div>
+                <p>Ditambahkan dwell time minimum sebelum status berganti, jadi transisi terasa halus bukan berkedip.</p>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>Hasil</h2>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8;">
+                Sistem berhasil merespons kondisi udara secara otomatis dan real-time pada hardware ESP32 Dev Module
+                (diuji via COM3), dengan kombinasi flag yang bisa menangani banyak kondisi sekaligus tanpa konflik logika.
+                Dokumentasi lengkap dituangkan dalam bab implementasi &amp; analisis (11 bagian terstruktur) sebagai bagian
+                dari skripsi Sistem Komputer.
+            </p>
+        </div>
+
+        <div class="resume-section">
+            <h2>Pembelajaran</h2>
+            <p style="color:var(--muted); font-size:.92rem; line-height:1.8;">
+                Proyek ini banyak mengajarkan soal pentingnya kalibrasi sensor di dunia nyata (bukan asumsi datasheet),
+                cara merepresentasikan kondisi majemuk dengan bitmask ketimbang if-else berlapis, dan betapa kecilnya
+                detail seperti polaritas relay atau driver OLED yang salah bisa bikin sistem gagal total kalau nggak
+                di-debug sistematis.
+            </p>
+        </div>
+
+        <div class="resume-section" style="border:none;">
+            <a href="index.html#projects" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Kembali ke Projects</a>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Nafil Fadillah. All rights reserved. &middot; <a href="privacy.html" style="color:var(--muted-2);">Privacy Policy</a></p>
+    </footer>
+
+    <script src="script.js?v=3"></script>
+</body>
+</html>
